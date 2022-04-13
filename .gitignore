@@ -33,4 +33,9 @@ AcademicInfo/AcademicInfoServer/.vs/
 AcademicInfo/AcademicInfoServer/bin/
 AcademicInfo/AcademicInfoServer/obj/
 
-AcademicInfo/.vs/AcademicInfo/v17/.suo
+*.suo
+*.dll
+*.dll
+*.pdb
+*.cache
+*.sentinel
