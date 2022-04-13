@@ -25,3 +25,30 @@ D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.exe
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.deps.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.runtimeconfig.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.pdb
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.AssemblyReference.cache
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfoInputs.cache
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfo.cs
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CoreCompileInputs.cache
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\scopedcss\bundle\AcademicInfoServer.styles.css
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CopyComplete
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\refint\AcademicInfoServer.dll
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
+C:\Users\Emi\Documents\GitHub\Wildcats repo\Wildcats\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll

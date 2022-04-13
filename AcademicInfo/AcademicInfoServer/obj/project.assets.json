@@ -208,24 +208,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\evolo\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Emi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "projectUniqueName": "C:\\Users\\Emi\\Documents\\GitHub\\Wildcats repo\\Wildcats\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
       "projectName": "AcademicInfoServer",
-      "projectPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-      "packagesPath": "C:\\Users\\evolo\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\obj\\",
+      "projectPath": "C:\\Users\\Emi\\Documents\\GitHub\\Wildcats repo\\Wildcats\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "packagesPath": "C:\\Users\\Emi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Emi\\Documents\\GitHub\\Wildcats repo\\Wildcats\\AcademicInfo\\AcademicInfoServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\evolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Emi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -274,7 +269,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
