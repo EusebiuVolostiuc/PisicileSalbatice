@@ -23,7 +23,6 @@
 hs_err_pid*
 
 AcademicInfo/.vs/
-AcademicInfo/.vs/AcademicInfo
 
 AcademicInfo/AcademicInfoClient/.angular/
 AcademicInfo/AcademicInfoClient/.vs/
@@ -33,3 +32,4 @@ AcademicInfo/AcademicInfoClient/node_modules/
 AcademicInfo/AcademicInfoServer/.vs/
 AcademicInfo/AcademicInfoServer/bin/
 AcademicInfo/AcademicInfoServer/obj/
+AcademicInfo/.vs/AcademicInfo/v17/.suo
