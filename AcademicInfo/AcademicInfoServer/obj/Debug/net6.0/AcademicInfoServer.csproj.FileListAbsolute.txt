@@ -25,3 +25,30 @@ D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
 D:\University\Code\ISS_Test\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.exe
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.deps.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.runtimeconfig.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.pdb
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.AssemblyReference.cache
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfoInputs.cache
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfo.cs
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CoreCompileInputs.cache
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\scopedcss\bundle\AcademicInfoServer.styles.css
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CopyComplete
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\refint\AcademicInfoServer.dll
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
+C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
