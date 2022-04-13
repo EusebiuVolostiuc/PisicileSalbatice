@@ -22,13 +22,14 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-AcademicInfo/.vs/*
+AcademicInfo/.vs/
+AcademicInfo/.vs/AcademicInfo
 
-AcademicInfo/AcademicInfoClient/.angular/*
-AcademicInfo/AcademicInfoClient/.vs/*
-AcademicInfo/AcademicInfoClient/.vscode/*
-AcademicInfo/AcademicInfoClient/node_modules/*
+AcademicInfo/AcademicInfoClient/.angular/
+AcademicInfo/AcademicInfoClient/.vs/
+AcademicInfo/AcademicInfoClient/.vscode/
+AcademicInfo/AcademicInfoClient/node_modules/
 
-AcademicInfo/AcademicInfoServer/.vs/*
-AcademicInfo/AcademicInfoServer/bin/*
-AcademicInfo/AcademicInfoServer/obj/*
+AcademicInfo/AcademicInfoServer/.vs/
+AcademicInfo/AcademicInfoServer/bin/
+AcademicInfo/AcademicInfoServer/obj/
