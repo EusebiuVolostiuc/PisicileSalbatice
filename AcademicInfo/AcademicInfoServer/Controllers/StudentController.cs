@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AcademicInfoServer.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
+
 
 namespace AcademicInfoServer.Controllers
 {
@@ -21,16 +24,18 @@ namespace AcademicInfoServer.Controllers
         {
             string query = @"select * from Students";
 
+
+
             DataTable tbl = new DataTable();
 
             string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
 
             SqlDataReader myReader;
 
-           using(SqlConnection myCon=new SqlConnection(sqlDataSource))
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
                 myCon.Open();
-                using (SqlCommand cmd=new SqlCommand(query,myCon))
+                using (SqlCommand cmd = new SqlCommand(query, myCon))
                 {
                     myReader = cmd.ExecuteReader();
 
@@ -42,9 +47,113 @@ namespace AcademicInfoServer.Controllers
 
             }
 
-           return new JsonResult(tbl);
+            return new JsonResult(tbl);
 
         }
+
+
+        [HttpPost]
+        public JsonResult Post(Student s)
+        {
+ 
+
+            string query = @"insert into Students (userID,Name,department,year,groupp) values (" + s.UserID+ ",'"+s.name+"','"+s.department+"',"+s.year+","+s.group+")";
+
+            Console.WriteLine(query);
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                {
+                    myReader = cmd.ExecuteReader();
+
+                    tbl.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+
+            }
+
+            return new JsonResult("Added succesfully!");
+
+        }
+
+
+
+        [HttpPut]
+        public JsonResult Put(Student s)
+        {
+
+
+            string query = @"update Students set Name='" + s.name + "',department='" + s.department + "'," + "year=" + s.year + ",groupp=" + s.group + " where userID="+ s.UserID;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                {
+                    myReader = cmd.ExecuteReader();
+
+                    tbl.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+
+            }
+
+            return new JsonResult("Updated succesfully!");
+
+        }
+
+        [HttpDelete("{id}")]
+
+        public JsonResult Delete(int id)
+        {
+            string query = @"delete from Students where userID=" + id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                {
+                    myReader = cmd.ExecuteReader();
+
+                    tbl.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+
+            }
+
+            return new JsonResult("Deleted succesfully!");
+        }
+
 
 
 
