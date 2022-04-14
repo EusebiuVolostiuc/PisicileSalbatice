@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -24,11 +25,11 @@ const routes: Routes = [
     LoginFormComponent,
     StudentProfileComponent
   ],
-  imports: [
-    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule,FlexLayoutModule,
-    MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,
-    MatToolbarModule
-  ],
+    imports: [
+        RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
+        MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
+        MatToolbarModule, ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [RouterModule]
