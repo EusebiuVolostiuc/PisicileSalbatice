@@ -1,16 +1,13 @@
-<<<<<<< HEAD
+
 using AcademicInfoServer.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using System.Text;
-=======
 using Newtonsoft.Json.Serialization;
->>>>>>> Octavian
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllersWithViews()
                .AddNewtonsoftJson(options =>
@@ -21,7 +18,6 @@ builder.Services.AddControllersWithViews()
 
 builder.Services.AddControllers();
 
-<<<<<<< HEAD
 var privateKey = "academic academic academic academic";
 
 builder.Services.AddAuthentication(x =>
@@ -39,8 +35,7 @@ builder.Services.AddAuthentication(x =>
     };
 });
 builder.Services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(privateKey));
-=======
->>>>>>> Octavian
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

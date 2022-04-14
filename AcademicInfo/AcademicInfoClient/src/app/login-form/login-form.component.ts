@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -12,7 +13,7 @@ export class LoginFormComponent implements OnInit {
   public loginForm: FormGroup
   public http: HttpClient
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -26,6 +27,6 @@ export class LoginFormComponent implements OnInit {
   // this.http.post('http://localhost/')
   // }
   authenticateUser() {
-
+    this.router.navigateByUrl('staff-component')
   }
 }

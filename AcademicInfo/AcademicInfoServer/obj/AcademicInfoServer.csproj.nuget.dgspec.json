@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {}
+    "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {}
   },
   "projects": {
-    "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {
+    "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+        "projectUniqueName": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
         "projectName": "AcademicInfoServer",
-        "projectPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-        "packagesPath": "C:\\Users\\evolo\\.nuget\\packages\\",
-        "outputPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\obj\\",
+        "projectPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+        "packagesPath": "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\evolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lucian Vrabiescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,10 +51,6 @@
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[6.0.4, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[6.17.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

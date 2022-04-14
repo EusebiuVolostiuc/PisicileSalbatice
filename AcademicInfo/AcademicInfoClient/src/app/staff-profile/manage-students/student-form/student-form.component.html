@@ -2,6 +2,9 @@
     <mat-card fxFlex="25" fxLayout="row">
         <form style="margin-left: 5%;" class="example-form" fxLayoutAlign="stretch" fxLayout="column" fxFlexFill
         [formGroup]="studentForm" (ngSubmit)="addStudent()">
+          <mat-form-field>
+            <input matInput placeholder="ID" [formControl]="$any(studentForm).controls['UserID']">
+          </mat-form-field>
             <mat-form-field>
               <input matInput placeholder="Name" [formControl]="$any(studentForm).controls['Name']">
             </mat-form-field>
@@ -14,7 +17,7 @@
               <mat-form-field>
                 <input matInput placeholder="Group" [formControl]="$any(studentForm).controls['Group']">
               </mat-form-field>
-            <button mat-raised-button type="submit" onclick="submit()">Add student</button>
+            <button mat-raised-button type="submit">Add student</button>
           </form>
     </mat-card>
     </div>
