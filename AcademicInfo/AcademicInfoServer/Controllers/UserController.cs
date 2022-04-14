@@ -1,20 +1,19 @@
 ﻿using AcademicInfoServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-
 
 namespace AcademicInfoServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class UserController : ControllerBase
     {
+
         private readonly IConfiguration _configuration;
 
-        public StudentController(IConfiguration configuration)
+        public UserController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -22,7 +21,7 @@ namespace AcademicInfoServer.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select * from Students";
+            string query = @"select * from Users";
 
 
 
@@ -63,11 +62,11 @@ namespace AcademicInfoServer.Controllers
 
 
         [HttpPost]
-        public JsonResult Post(Student s)
+        public JsonResult Post(User u)
         {
- 
 
-            string query = @"insert into Students (userID,Name,department,year,groupp) values (" + s.UserID+ ",'"+s.name+"','"+s.department+"',"+s.year+","+s.group+")";
+
+            string query = @"insert into Users (userName,password,accountType) values ('" + u.UserName + "','" + u.password + "','" + u.accountType + "')";
 
             Console.WriteLine(query);
 
@@ -100,7 +99,7 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-            
+           
 
             return new JsonResult("Added succesfully!");
 
@@ -109,11 +108,11 @@ namespace AcademicInfoServer.Controllers
 
 
         [HttpPut]
-        public JsonResult Put(Student s)
+        public JsonResult Put(User u)
         {
 
 
-            string query = @"update Students set Name='" + s.name + "',department='" + s.department + "'," + "year=" + s.year + ",groupp=" + s.group + " where userID="+ s.UserID;
+            string query = @"update Users set userName='" + u.UserName + "',password='" + u.password + "'," + "accountType='" + u.accountType  + "' where accountID=" + u.accountId;
 
 
             Console.Write(query);
@@ -139,6 +138,7 @@ namespace AcademicInfoServer.Controllers
                     }
 
                 }
+
             }
 
             catch (Exception ex)
@@ -146,8 +146,7 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-            
-
+           
             return new JsonResult("Updated succesfully!");
 
         }
@@ -156,7 +155,7 @@ namespace AcademicInfoServer.Controllers
 
         public JsonResult Delete(int id)
         {
-            string query = @"delete from Students where userID=" + id;
+            string query = @"delete from Users where accountID=" + id;
 
 
             Console.Write(query);
@@ -202,6 +201,3 @@ namespace AcademicInfoServer.Controllers
 
 }
 
-            
-
-     

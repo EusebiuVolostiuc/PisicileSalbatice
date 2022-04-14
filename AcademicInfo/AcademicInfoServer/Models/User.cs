@@ -2,10 +2,15 @@
 {
     public class User
     {
-        public int UserName { get; set; }
-        public string password { get; set; }
+        public String UserName { get; set; } = "";
+        public string password { get; set; } = "";
 
-        public string accountType { get; set; }
+        public string accountType { get; set; } = "";
+
+        public int accountId { get; set; } = -1;
+        
+
+
 
         
 

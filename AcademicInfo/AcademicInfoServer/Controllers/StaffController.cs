@@ -1,29 +1,186 @@
 ﻿using AcademicInfoServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-
 
 namespace AcademicInfoServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StaffController : ControllerBase
     {
+
         private readonly IConfiguration _configuration;
 
-        public StudentController(IConfiguration configuration)
+        public StaffController(IConfiguration configuration)
         {
             _configuration = configuration;
+        }
+
+        private void add_User(StudentAccount u)
+        {
+            string query = @"insert into Users (userName,password,accountType) values ('" + u.userName + "','" + u.password + "','" + "student" + "')";
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+
+            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            {
+                myCon.Open();
+                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                {
+                    myReader = cmd.ExecuteReader();
+
+                    tbl.Load(myReader);
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+
+            }
+        }
+
+        [HttpPost("add_Student")]
+        public JsonResult add_Student(StudentAccount u)
+        {
+            
+            try
+            {
+                add_User(u);
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+            
+            string query = @"select accountId from Users where userName= '" + u.userName + "'";
+
+            Console.WriteLine(query);
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            int id=-1;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+                        myReader.Read();
+
+                        id = (int)myReader["accountId"];
+
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            
+
+          
+
+            string query2 = @"insert into Students values (" + id + ",'" + u.name + "','" + u.department + "'," + u.year + "," + u.group + ")";
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query2, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
+
+
+
+            return new JsonResult("Added succesfully!\n");
         }
 
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select * from Students";
+            string query = @"select * from Staff";
 
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+
+            }
+
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+            return new JsonResult(tbl);
+
+        }
+
+
+        [HttpPost]
+        public JsonResult Post(Staff s)
+        {
+
+
+            string query = @"insert into Staff values (" + s.userId + ",'" + s.name +"')";
 
 
             DataTable tbl = new DataTable();
@@ -57,51 +214,6 @@ namespace AcademicInfoServer.Controllers
 
            
 
-            return new JsonResult(tbl);
-
-        }
-
-
-        [HttpPost]
-        public JsonResult Post(Student s)
-        {
- 
-
-            string query = @"insert into Students (userID,Name,department,year,groupp) values (" + s.UserID+ ",'"+s.name+"','"+s.department+"',"+s.year+","+s.group+")";
-
-            Console.WriteLine(query);
-
-            DataTable tbl = new DataTable();
-
-            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
-
-            SqlDataReader myReader;
-
-            try
-            {
-                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-                {
-                    myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, myCon))
-                    {
-                        myReader = cmd.ExecuteReader();
-
-                        tbl.Load(myReader);
-
-                        myReader.Close();
-                        myCon.Close();
-                    }
-
-                }
-            }
-
-            catch (Exception ex)
-            {
-                return new JsonResult(ex.Message);
-            }
-
-            
-
             return new JsonResult("Added succesfully!");
 
         }
@@ -109,11 +221,11 @@ namespace AcademicInfoServer.Controllers
 
 
         [HttpPut]
-        public JsonResult Put(Student s)
+        public JsonResult Put(Staff s)
         {
 
 
-            string query = @"update Students set Name='" + s.name + "',department='" + s.department + "'," + "year=" + s.year + ",groupp=" + s.group + " where userID="+ s.UserID;
+            string query = @"update Staff set Name='" + s.name + "'" + " where userID=" + s.userId;
 
 
             Console.Write(query);
@@ -141,12 +253,12 @@ namespace AcademicInfoServer.Controllers
                 }
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 return new JsonResult(ex.Message);
             }
 
-            
+           
 
             return new JsonResult("Updated succesfully!");
 
@@ -156,7 +268,7 @@ namespace AcademicInfoServer.Controllers
 
         public JsonResult Delete(int id)
         {
-            string query = @"delete from Students where userID=" + id;
+            string query = @"delete from Staff where userID=" + id;
 
 
             Console.Write(query);
@@ -189,6 +301,7 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
+          
 
             return new JsonResult("Deleted succesfully!");
         }
@@ -202,6 +315,3 @@ namespace AcademicInfoServer.Controllers
 
 }
 
-            
-
-     
