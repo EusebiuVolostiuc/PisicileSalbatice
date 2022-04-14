@@ -36,7 +36,6 @@ namespace AcademicInfoServer.Authentication
 
 
         //POST /api/authenticate
-        
 
         [AllowAnonymous]
         [HttpPost("authenticate") ]
