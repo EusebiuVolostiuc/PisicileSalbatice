@@ -8,7 +8,6 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace AcademicInfoServer.Authentication
 {
-
     [Route("api/")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -27,6 +26,8 @@ namespace AcademicInfoServer.Authentication
         }
 
         // GET api/testget5
+        [Authorize]
+        //currently not getting the authorize pass even with bearer token
         [HttpGet("testget{value}")]
         public string Get(int value)
         {
@@ -35,7 +36,8 @@ namespace AcademicInfoServer.Authentication
 
 
         //POST /api/authenticate
-        [Authorize]
+        
+
         [AllowAnonymous]
         [HttpPost("authenticate") ]
         public IActionResult Authenticate([FromBody] AccountCredentials userCred)
@@ -60,5 +62,6 @@ namespace AcademicInfoServer.Authentication
                 return Ok(jsonResponse);
             }    
         }
+
     }
 }
