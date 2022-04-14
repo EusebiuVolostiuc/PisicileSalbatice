@@ -107,3 +107,11 @@ D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\refint\A
 D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
 D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
 D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Security.Permissions.dll

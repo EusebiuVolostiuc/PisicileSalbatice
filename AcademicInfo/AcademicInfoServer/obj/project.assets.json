@@ -2111,24 +2111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\evolo\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Tavi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "projectUniqueName": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
       "projectName": "AcademicInfoServer",
-      "projectPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-      "packagesPath": "C:\\Users\\evolo\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\obj\\",
+      "projectPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "packagesPath": "C:\\Users\\Tavi\\.nuget\\packages\\",
+      "outputPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\evolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Tavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2200,5 +2195,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
