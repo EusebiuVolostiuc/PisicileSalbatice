@@ -31,20 +31,30 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
 
             return new JsonResult(tbl);
 
@@ -66,20 +76,30 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
 
             return new JsonResult("Added succesfully!");
 
@@ -102,21 +122,31 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
 
             }
 
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
             return new JsonResult("Updated succesfully!");
 
         }
@@ -135,20 +165,29 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
 
             return new JsonResult("Deleted succesfully!");
         }

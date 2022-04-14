@@ -18,18 +18,16 @@ namespace AcademicInfoServer.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet]
-        public JsonResult Get()
+        private void add_User(StudentAccount u)
         {
-            string query = @"select * from Staff";
-
-
+            string query = @"insert into Users (userName,password,accountType) values ('" + u.userName + "','" + u.password + "','" + "student" + "')";
 
             DataTable tbl = new DataTable();
 
             string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
 
             SqlDataReader myReader;
+
 
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -45,6 +43,132 @@ namespace AcademicInfoServer.Controllers
                 }
 
             }
+        }
+
+        [HttpPost("add_Student")]
+        public JsonResult add_Student(StudentAccount u)
+        {
+            
+            try
+            {
+                add_User(u);
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+            
+            string query = @"select accountId from Users where userName= '" + u.userName + "'";
+
+            Console.WriteLine(query);
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            int id=-1;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+                        myReader.Read();
+
+                        id = (int)myReader["accountId"];
+
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            
+
+          
+
+            string query2 = @"insert into Students values (" + id + ",'" + u.name + "','" + u.department + "'," + u.year + "," + u.group + ")";
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query2, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
+
+
+
+            return new JsonResult("Added succesfully!\n");
+        }
+
+        [HttpGet]
+        public JsonResult Get()
+        {
+            string query = @"select * from Staff";
+
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+
+            }
+
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
 
             return new JsonResult(tbl);
 
@@ -65,20 +189,30 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
 
             return new JsonResult("Added succesfully!");
 
@@ -101,20 +235,30 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+           
 
             return new JsonResult("Updated succesfully!");
 
@@ -134,20 +278,30 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
-            using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+            try
             {
-                myCon.Open();
-                using (SqlCommand cmd = new SqlCommand(query, myCon))
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
-                    myReader = cmd.ExecuteReader();
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
 
-                    tbl.Load(myReader);
+                        tbl.Load(myReader);
 
-                    myReader.Close();
-                    myCon.Close();
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
                 }
-
             }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+          
 
             return new JsonResult("Deleted succesfully!");
         }
