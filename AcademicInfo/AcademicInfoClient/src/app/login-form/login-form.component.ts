@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-login-form',
@@ -9,6 +10,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class LoginFormComponent implements OnInit {
   iconImg:string = "src\\assets\\img\\img.png"
   public loginForm: FormGroup
+  public http: HttpClient
 
   constructor() { }
 
@@ -20,7 +22,10 @@ export class LoginFormComponent implements OnInit {
   }
 
 
+  // authenticateUser() {
+  // this.http.post('http://localhost/')
+  // }
   authenticateUser() {
-    console.log(this.loginForm.value.username)
+
   }
 }
