@@ -18,6 +18,7 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
 import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { ManageStudentsComponent } from './staff-profile/manage-students/manage-students.component';
 import { StudentFormComponent } from './staff-profile/manage-students/student-form/student-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -36,9 +37,9 @@ const routes: Routes = [
     StudentFormComponent
   ],
   imports: [
-    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule,FlexLayoutModule,
-    MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,
-    MatToolbarModule,MatTableModule,MatSidenavModule
+    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
+    MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
+    MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
