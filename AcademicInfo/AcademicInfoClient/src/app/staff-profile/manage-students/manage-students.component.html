@@ -2,29 +2,33 @@
     <mat-card style="width: 58%; height: fit-content;">
         <button mat-raised-button style="float:right" (click)="load_student_form()">Add student</button>
     </mat-card>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="students" class="mat-elevation-z8">
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.userID}} </td>
     </ng-container>
-  
- 
+
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
     </ng-container>
-  
+
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> year </th>
+      <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="year">
       <th mat-header-cell *matHeaderCellDef> year </th>
       <td mat-cell *matCellDef="let element"> {{element.year}} </td>
     </ng-container>
-  
+
 
     <ng-container matColumnDef="group">
       <th mat-header-cell *matHeaderCellDef> group </th>
-      <td mat-cell *matCellDef="let element"> {{element.group}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.groupp}} </td>
     </ng-container>
-  
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

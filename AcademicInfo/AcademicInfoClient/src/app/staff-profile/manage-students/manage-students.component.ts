@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-export interface Student {
-  position: number;
-  name: string;
-  year: number;
-  group: number;
+import {HttpClient} from "@angular/common/http";
+import {map} from "rxjs";
+
+interface Student {
+  userID:number,
+  Name:string,
+  department:string,
+  year:number,
+  groupp:number
 }
-
-const ELEMENT_DATA: Student[] = [
-  {position: 1, name: 'St1', year: 2, group: 925},
-  {position: 2, name: 'st2', year: 1, group: 911},
-  {position: 3, name: 'st3', year: 3, group: 935},
-  {position: 4, name: 'st4', year: 1, group: 917},
-
-];
 
 @Component({
   selector: 'app-manage-students',
@@ -23,15 +19,30 @@ const ELEMENT_DATA: Student[] = [
 export class ManageStudentsComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'year', 'group'];
-  dataSource = ELEMENT_DATA;
+  dataSource = [];
+  students: Student[]
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.loadStudents();
   }
 
   load_student_form(){
     this.router.navigateByUrl('student-form-component');
+  }
+
+  loadStudents() {
+    this.http.get('http://localhost:4200/api/student/').pipe(map(responseData => {
+      const postArr = []
+      for (const key in responseData) {
+        if (responseData.hasOwnProperty(key)) {
+          postArr.push((responseData as any)[key])
+        }
+      }
+      return postArr;
+    })).subscribe(posts => this.students = posts)
   }
 
 }

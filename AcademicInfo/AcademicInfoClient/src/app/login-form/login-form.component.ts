@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -10,9 +11,8 @@ import {HttpClient} from "@angular/common/http";
 export class LoginFormComponent implements OnInit {
   iconImg:string = "src\\assets\\img\\img.png"
   public loginForm: FormGroup
-  public http: HttpClient
 
-  constructor() { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -26,6 +26,16 @@ export class LoginFormComponent implements OnInit {
   // this.http.post('http://localhost/')
   // }
   authenticateUser() {
-
+    this.router.navigateByUrl('staff-component')
+  //   const loginData = {
+  //     userID: this.loginForm.value.username,
+  //     password: this.loginForm.value.username
+  //   }
+  //   this.http.post('http://localhost:5014/api/authenticate', loginData)
+  //   // this.http.post('http://localhost:5014', loginData)
+  //     .subscribe(response => {
+  //       console.log('post response ', response);
+  //     })
+  //
   }
 }
