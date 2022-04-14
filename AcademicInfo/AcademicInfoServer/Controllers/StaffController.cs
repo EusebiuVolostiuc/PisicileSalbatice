@@ -12,14 +12,25 @@ namespace AcademicInfoServer.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private static Random random = new Random();
 
         public StaffController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        private void add_User(StudentAccount u)
+        private static string RandomString(int length)
         {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private void add_User(Student u)
+        {
+
+            string userName = u.name + "@academicinfo";
+            string password= RandomString(10);
             string query = @"insert into Users (userName,password,accountType) values ('" + u.userName + "','" + u.password + "','" + "student" + "')";
 
             DataTable tbl = new DataTable();
