@@ -2111,19 +2111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\": {}
+    "C:\\Users\\Tavi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "projectUniqueName": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
       "projectName": "AcademicInfoServer",
-      "projectPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-      "packagesPath": "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\ISSProject\\AcademicInfo\\AcademicInfoServer\\obj\\",
+      "projectPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "packagesPath": "C:\\Users\\Tavi\\.nuget\\packages\\",
+      "outputPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lucian Vrabiescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2195,5 +2195,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

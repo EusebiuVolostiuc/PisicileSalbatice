@@ -1,6 +1,7 @@
 ﻿using AcademicInfoServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -12,15 +13,26 @@ namespace AcademicInfoServer.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private static Random random = new Random();
 
         public StaffController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        private void add_User(StudentAccount u)
+        private static string RandomString(int length)
         {
-            string query = @"insert into Users (userName,password,accountType) values ('" + u.userName + "','" + u.password + "','" + "student" + "')";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private string add_User(Student u)
+        {
+
+            string userName = u.name + "@academicinfo";
+            string password= RandomString(10);
+            string query = @"insert into Users (userName,password,accountType) values ('" + userName + "','" + password + "','" + "student" + "')";
 
             DataTable tbl = new DataTable();
 
@@ -43,15 +55,28 @@ namespace AcademicInfoServer.Controllers
                 }
 
             }
+
+            var newAccount = new
+            {
+                Message = "User Authenticated Successfully!",
+                userN = userName,
+                passwd = password
+               
+            };
+
+            return JsonConvert.SerializeObject(newAccount);
+
+           
         }
 
         [HttpPost("add_Student")]
-        public JsonResult add_Student(StudentAccount u)
+        public IActionResult add_Student(Student u)
         {
-            
+
+            dynamic newUser;
             try
             {
-                add_User(u);
+                newUser = JsonConvert.DeserializeObject(add_User(u));
             }
 
             catch (Exception ex)
@@ -59,7 +84,7 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
             
-            string query = @"select accountId from Users where userName= '" + u.userName + "'";
+            string query = @"select accountId from Users where userName= '" + newUser.userN + "'";
 
             Console.WriteLine(query);
 
@@ -125,11 +150,12 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-           
 
 
 
-            return new JsonResult("Added succesfully!\n");
+
+            //return new JsonResult("Added succesfully!\n");
+            return Ok(newUser);
         }
 
         [HttpGet]

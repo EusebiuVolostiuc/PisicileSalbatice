@@ -62,48 +62,56 @@ D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Micros
 D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.AssemblyReference.cache
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfoInputs.cache
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfo.cs
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CoreCompileInputs.cache
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\refint\AcademicInfoServer.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.exe
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.deps.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.runtimeconfig.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.pdb
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Data.SqlClient.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\scopedcss\bundle\AcademicInfoServer.styles.css
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CopyComplete
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
-C:\Users\Lucian Vrabiescu\Faculta\ISS\ISSProject\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.Development.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\appsettings.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.exe
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.deps.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.runtimeconfig.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\AcademicInfoServer.pdb
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.AssemblyReference.cache
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfoInputs.cache
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.AssemblyInfo.cs
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CoreCompileInputs.cache
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cs
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.MvcApplicationPartsAssemblyInfo.cache
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.build.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\staticwebassets.development.json
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\scopedcss\bundle\AcademicInfoServer.styles.css
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.csproj.CopyComplete
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\refint\AcademicInfoServer.dll
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.pdb
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\AcademicInfoServer.genruntimeconfig.cache
+D:\University\Code\ISS\AcademicInfo\AcademicInfoServer\obj\Debug\net6.0\ref\AcademicInfoServer.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\iss\PisicileSalbatice\AcademicInfo\AcademicInfoServer\bin\Debug\net6.0\System.Security.Permissions.dll
