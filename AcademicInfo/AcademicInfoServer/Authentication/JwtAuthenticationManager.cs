@@ -21,7 +21,7 @@ namespace AcademicInfoServer.Authentication
             this.key = key;
         }
 
-        public string Authenticate(string userID, string password)
+        public SecurityToken Authenticate(string userID, string password)
         {
             //modify if to work with db
             if(!users.Any(u=> u.Key == userID && u.Value == password))
@@ -43,7 +43,9 @@ namespace AcademicInfoServer.Authentication
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
+            //return tokenHandler.WriteToken(token);
+
+            return token;
  
         }
     }
