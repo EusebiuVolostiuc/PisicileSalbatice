@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-staff-profile',
@@ -9,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class StaffProfileComponent implements OnInit {
 
   showFiller = false;
-  constructor() { }
+  constructor(private router: Router) { 
+
+  }
 
   ngOnInit(): void {
+  }
+
+  load_manage_students(){
+    this.router.navigateByUrl('manage-students-component');
   }
 
 }

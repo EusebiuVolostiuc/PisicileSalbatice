@@ -1,6 +1,6 @@
 <mat-drawer-container class="example-container" autosize fxLayout="column">
     <mat-drawer #drawer class="example-sidenav" mode="side">
-    <button  mat-raised-button>Manage students</button>
+    <button  mat-raised-button (click)="load_manage_students()">Manage students</button>
     </mat-drawer>
     <button mat-raised-button style="left:40%; top:90%" type="button" (click)="drawer.toggle()">
         Menu

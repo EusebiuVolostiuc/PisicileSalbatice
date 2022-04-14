@@ -21,7 +21,10 @@ import { StudentFormComponent } from './staff-profile/manage-students/student-fo
 
 
 const routes: Routes = [
-  {path:'', component:StudentFormComponent}
+  {path:'', component:LoginFormComponent},
+  { path: 'staff-component', component: StaffProfileComponent },
+  { path: 'manage-students-component', component: ManageStudentsComponent },
+  { path: 'student-form-component', component: StudentFormComponent }
 ];
 @NgModule({
   declarations: [
