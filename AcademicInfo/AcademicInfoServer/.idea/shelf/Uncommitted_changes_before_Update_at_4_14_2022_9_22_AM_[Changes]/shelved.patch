@@ -1,0 +1,448 @@
+Index: ../AcademicInfoClient/src/app/login-form/login-form.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+> <!--\r\n<div class=\"form-container\">\r\n       <svg style=\"margin-top:20%; margin-left:5%\" xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" fill=\"currentColor\" class=\"bi bi-person-workspace\" viewBox=\"0 0 16 16\">\r\n        <path d=\"M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z\"/>\r\n        <path d=\"M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z\"/>\r\n      </svg>\r\n      <form>\r\n      <label for=\"username\">username:</label>\r\n      <input type=\"text\" id=\"fname\" name=\"fname\"><br><br>\r\n      <label for=\"password\">password:</label>\r\n      <input type=\"password\" id=\"lname\" name=\"lname\"><br><br>\r\n      <button class=\"button-4\" role=\"button\">Login</button>\r\n      </form>\r\n</div>\r\n-->\r\n<div fxLayoutAlign=\"center center\" fxFlexFill>\r\n<mat-card fxFlex=\"25\" fxLayout=\"row\">\r\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"200\" fill=\"currentColor\" class=\"bi bi-person-workspace\" viewBox=\"0 0 16 16\">\r\n        <path d=\"M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z\"/>\r\n        <path d=\"M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z\"/>\r\n      </svg>\r\n    <form style=\"margin-left: 5%;\" class=\"example-form\" fxLayoutAlign=\"stretch\" fxLayout=\"column\">\r\n        <mat-toolbar color=\"transparent\">AcademicInfo</mat-toolbar>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"username\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n            <input matInput type=\"password\" placeholder=\"password\">\r\n          </mat-form-field>\r\n        <button mat-raised-button type=\"submit\">Login</button>\r\n      </form>\r\n</mat-card>\r\n</div>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/src/app/login-form/login-form.component.html b/../AcademicInfoClient/src/app/login-form/login-form.component.html
+--- a/../AcademicInfoClient/src/app/login-form/login-form.component.html	
++++ b/../AcademicInfoClient/src/app/login-form/login-form.component.html	
+@@ -1,16 +1,16 @@
+- <!--
++<!--
+ <div class="form-container">
+-       <svg style="margin-top:20%; margin-left:5%" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
+-        <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+-        <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+-      </svg>
+-      <form>
+-      <label for="username">username:</label>
+-      <input type="text" id="fname" name="fname"><br><br>
+-      <label for="password">password:</label>
+-      <input type="password" id="lname" name="lname"><br><br>
+-      <button class="button-4" role="button">Login</button>
+-      </form>
++     <svg style="margin-top:20%; margin-left:5%" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
++      <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
++      <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
++    </svg>
++    <form>
++    <label for="username">username:</label>
++    <input type="text" id="fname" name="fname"><br><br>
++    <label for="password">password:</label>
++    <input type="password" id="lname" name="lname"><br><br>
++    <button class="button-4" role="button">Login</button>
++    </form>
+ </div>
+ -->
+ <div fxLayoutAlign="center center" fxFlexFill>
+@@ -19,15 +19,17 @@
+         <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+         <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
+       </svg>
+-    <form style="margin-left: 5%;" class="example-form" fxLayoutAlign="stretch" fxLayout="column">
++    <form style="margin-left: 5%;" class="example-form" fxLayoutAlign="stretch" fxLayout="column"
++          [formGroup]="loginForm"  (ngSubmit)="checkoutUser()">
+         <mat-toolbar color="transparent">AcademicInfo</mat-toolbar>
+-        <mat-form-field>
++        <mat-form-field [formControl]="$any(loginForm).controls['username']">
+           <input matInput placeholder="username">
+         </mat-form-field>
+         <mat-form-field>
+-            <input matInput type="password" placeholder="password">
++            <input matInput type="password" placeholder="password"
++                   [formControl]="$any(loginForm).controls['password']">
+           </mat-form-field>
+         <button mat-raised-button type="submit">Login</button>
+       </form>
+ </mat-card>
+-</div>
+\ No newline at end of file
++</div>
+Index: ../AcademicInfoClient/tsconfig.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* To learn more about this file see: https://angular.io/config/tsconfig. */\r\n{\r\n  \"compileOnSave\": false,\r\n  \"compilerOptions\": {\r\n    \"baseUrl\": \"./\",\r\n    \"outDir\": \"./dist/out-tsc\",\r\n    \"forceConsistentCasingInFileNames\": true,\r\n    \"strict\": true,\r\n    \"noImplicitOverride\": true,\r\n    \"noPropertyAccessFromIndexSignature\": true,\r\n    \"noImplicitReturns\": true,\r\n    \"noFallthroughCasesInSwitch\": true,\r\n    \"sourceMap\": true,\r\n    \"declaration\": false,\r\n    \"downlevelIteration\": true,\r\n    \"experimentalDecorators\": true,\r\n    \"moduleResolution\": \"node\",\r\n    \"importHelpers\": true,\r\n    \"target\": \"es2017\",\r\n    \"module\": \"es2020\",\r\n    \"lib\": [\r\n      \"es2020\",\r\n      \"dom\"\r\n    ]\r\n  },\r\n  \"angularCompilerOptions\": {\r\n    \"enableI18nLegacyMessageIdFormat\": false,\r\n    \"strictInjectionParameters\": true,\r\n    \"strictInputAccessModifiers\": true,\r\n    \"strictTemplates\": true\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/tsconfig.json b/../AcademicInfoClient/tsconfig.json
+--- a/../AcademicInfoClient/tsconfig.json	
++++ b/../AcademicInfoClient/tsconfig.json	
+@@ -18,6 +18,7 @@
+     "importHelpers": true,
+     "target": "es2017",
+     "module": "es2020",
++    "strictPropertyInitialization": false,
+     "lib": [
+       "es2020",
+       "dom"
+Index: ../AcademicInfoClient/src/custom-theme.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/src/custom-theme.scss b/../AcademicInfoClient/src/custom-theme.scss
+new file mode 100644
+--- /dev/null	
++++ b/../AcademicInfoClient/src/custom-theme.scss	
+@@ -0,0 +1,35 @@
++
++// Custom Theming for Angular Material
++// For more information: https://material.angular.io/guide/theming
++@use '@angular/material' as mat;
++// Plus imports for other components in your app.
++
++// Include the common styles for Angular Material. We include this here so that you only
++// have to load a single css file for Angular Material in your app.
++// Be sure that you only ever include this mixin once!
++@include mat.core();
++
++// Define the palettes for your theme using the Material Design palettes available in palette.scss
++// (imported above). For each palette, you can optionally specify a default, lighter, and darker
++// hue. Available color palettes: https://material.io/design/color/
++$AcademicInfoClient-primary: mat.define-palette(mat.$indigo-palette);
++$AcademicInfoClient-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
++
++// The warn palette is optional (defaults to red).
++$AcademicInfoClient-warn: mat.define-palette(mat.$red-palette);
++
++// Create the theme object. A theme consists of configurations for individual
++// theming systems such as "color" or "typography".
++$AcademicInfoClient-theme: mat.define-light-theme((
++  color: (
++    primary: $AcademicInfoClient-primary,
++    accent: $AcademicInfoClient-accent,
++    warn: $AcademicInfoClient-warn,
++  )
++));
++
++// Include theme styles for core and each component used in your app.
++// Alternatively, you can import and @include the theme mixins for each component
++// that you are using.
++@include mat.all-component-themes($AcademicInfoClient-theme);
++
+Index: ../AcademicInfoClient/src/app/app.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { HttpClientModule } from '@angular/common/http';\r\nimport { NgModule } from '@angular/core';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\nimport { Routes, RouterModule } from '@angular/router';\r\nimport { FlexLayoutModule } from '@angular/flex-layout';\r\nimport {MatFormFieldModule} from '@angular/material/form-field';\r\nimport {MatInputModule} from '@angular/material/input';\r\nimport {MatButtonModule} from '@angular/material/button';\r\nimport {MatCardModule} from '@angular/material/card';\r\nimport {MatToolbarModule} from '@angular/material/toolbar';\r\n\r\nimport { AppComponent } from './app.component';\r\nimport { LoginFormComponent } from './login-form/login-form.component';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\nimport { StudentProfileComponent } from './student-profile/student-profile.component';\r\n\r\n\r\nconst routes: Routes = [\r\n  {path:'', component:LoginFormComponent}\r\n];\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    LoginFormComponent,\r\n    StudentProfileComponent\r\n  ],\r\n  imports: [\r\n    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule,FlexLayoutModule,\r\n    MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,\r\n    MatToolbarModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppModule { }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/src/app/app.module.ts b/../AcademicInfoClient/src/app/app.module.ts
+--- a/../AcademicInfoClient/src/app/app.module.ts	
++++ b/../AcademicInfoClient/src/app/app.module.ts	
+@@ -13,6 +13,7 @@
+ import { LoginFormComponent } from './login-form/login-form.component';
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ import { StudentProfileComponent } from './student-profile/student-profile.component';
++import {ReactiveFormsModule} from "@angular/forms";
+ 
+ 
+ const routes: Routes = [
+@@ -24,11 +25,11 @@
+     LoginFormComponent,
+     StudentProfileComponent
+   ],
+-  imports: [
+-    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule,FlexLayoutModule,
+-    MatFormFieldModule,MatInputModule,MatButtonModule,MatCardModule,
+-    MatToolbarModule
+-  ],
++    imports: [
++        RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
++        MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
++        MatToolbarModule, ReactiveFormsModule
++    ],
+   providers: [],
+   bootstrap: [AppComponent],
+   exports: [RouterModule]
+Index: ../AcademicInfoClient/src/app/login-form/login-form.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-login-form',\r\n  templateUrl: './login-form.component.html',\r\n  styleUrls: ['./login-form.component.css']\r\n})\r\nexport class LoginFormComponent implements OnInit {\r\n  iconImg:string = \"src\\assets\\img\\img.png\"\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/src/app/login-form/login-form.component.ts b/../AcademicInfoClient/src/app/login-form/login-form.component.ts
+--- a/../AcademicInfoClient/src/app/login-form/login-form.component.ts	
++++ b/../AcademicInfoClient/src/app/login-form/login-form.component.ts	
+@@ -1,4 +1,6 @@
+ import { Component, OnInit } from '@angular/core';
++import {FormControl, FormGroup, Validators} from "@angular/forms";
++import {HttpClient} from "@angular/common/http";
+ 
+ @Component({
+   selector: 'app-login-form',
+@@ -6,11 +8,21 @@
+   styleUrls: ['./login-form.component.css']
+ })
+ export class LoginFormComponent implements OnInit {
+-  iconImg:string = "src\assets\img\img.png"
++  iconImg:string = "src\\assets\\img\\img.png"
++  public loginForm: FormGroup
++  http: HttpClient
+ 
+   constructor() { }
+ 
+   ngOnInit(): void {
++    this.loginForm = new FormGroup({
++      username: new FormControl('', Validators.required),
++      password: new FormControl('', Validators.required)
++    })
++  }
++
++  checkoutUser(): void{
++    this.http.post('https://localhost/')
+   }
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/workspace.xml	
+@@ -0,0 +1,63 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="45562605-7012-4098-96a8-e35441343ff8" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/../AcademicInfoClient/src/custom-theme.scss" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/angular.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/package.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/src/app/app.module.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/src/app/login-form/login-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/src/app/login-form/login-form.component.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/src/app/login-form/login-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/src/app/login-form/login-form.component.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/src/styles.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../AcademicInfoClient/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademicInfoClient/tsconfig.json" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
++  </component>
++  <component name="ProjectId" id="27mD45O1xfgetfmufiU9NLcYeqD" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent">
++    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
++    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="WebServerToolWindowFactoryState" value="false" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="vue.rearranger.settings.migration" value="true" />
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="45562605-7012-4098-96a8-e35441343ff8" name="Changes" comment="" />
++      <created>1649916174010</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1649916174010</updated>
++      <workItem from="1649916175170" duration="27000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: ../AcademicInfoClient/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"academic-info-client\",\r\n  \"version\": \"0.0.0\",\r\n  \"scripts\": {\r\n    \"ng\": \"ng\",\r\n    \"start\": \"ng serve --ssl --ssl-cert %APPDATA%\\\\ASP.NET\\\\https\\\\%npm_package_name%.pem --ssl-key %APPDATA%\\\\ASP.NET\\\\https\\\\%npm_package_name%.key\",\r\n    \"build\": \"ng build\",\r\n    \"watch\": \"ng build --watch --configuration development\",\r\n    \"test\": \"ng test\",\r\n    \"prestart\": \"node aspnetcore-https\"\r\n  },\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@angular/animations\": \"~13.3.0\",\r\n    \"@angular/cdk\": \"^13.3.2\",\r\n    \"@angular/common\": \"~13.3.0\",\r\n    \"@angular/compiler\": \"~13.3.0\",\r\n    \"@angular/core\": \"~13.3.0\",\r\n    \"@angular/flex-layout\": \"^13.0.0-beta.38\",\r\n    \"@angular/forms\": \"~13.3.0\",\r\n    \"@angular/material\": \"^13.3.2\",\r\n    \"@angular/platform-browser\": \"~13.3.0\",\r\n    \"@angular/platform-browser-dynamic\": \"~13.3.0\",\r\n    \"@angular/router\": \"~13.3.0\",\r\n    \"jest-editor-support\": \"*\",\r\n    \"rxjs\": \"~7.5.0\",\r\n    \"tslib\": \"^2.3.0\",\r\n    \"zone.js\": \"~0.11.4\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@angular-devkit/build-angular\": \"~13.3.2\",\r\n    \"@angular/cli\": \"~13.3.2\",\r\n    \"@angular/compiler-cli\": \"~13.3.0\",\r\n    \"@types/jasmine\": \"~3.10.0\",\r\n    \"@types/node\": \"^12.11.1\",\r\n    \"jasmine-core\": \"~4.0.0\",\r\n    \"karma\": \"~6.3.0\",\r\n    \"karma-chrome-launcher\": \"~3.1.0\",\r\n    \"karma-coverage\": \"~2.1.0\",\r\n    \"karma-jasmine\": \"~4.0.0\",\r\n    \"karma-jasmine-html-reporter\": \"~1.7.0\",\r\n    \"typescript\": \"~4.6.2\"\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/package.json b/../AcademicInfoClient/package.json
+--- a/../AcademicInfoClient/package.json	
++++ b/../AcademicInfoClient/package.json	
+@@ -18,7 +18,7 @@
+     "@angular/core": "~13.3.0",
+     "@angular/flex-layout": "^13.0.0-beta.38",
+     "@angular/forms": "~13.3.0",
+-    "@angular/material": "^13.3.2",
++    "@angular/material": "^13.3.3",
+     "@angular/platform-browser": "~13.3.0",
+     "@angular/platform-browser-dynamic": "~13.3.0",
+     "@angular/router": "~13.3.0",
+@@ -41,4 +41,4 @@
+     "karma-jasmine-html-reporter": "~1.7.0",
+     "typescript": "~4.6.2"
+   }
+-}
++}
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules.xml	
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/AcademicInfoServer.iml" filepath="$PROJECT_DIR$/.idea/AcademicInfoServer.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../AcademicInfoClient/package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/package-lock.json b/../AcademicInfoClient/package-lock.json
+--- a/../AcademicInfoClient/package-lock.json	
++++ b/../AcademicInfoClient/package-lock.json	
+@@ -15,7 +15,7 @@
+         "@angular/core": "~13.3.0",
+         "@angular/flex-layout": "^13.0.0-beta.38",
+         "@angular/forms": "~13.3.0",
+-        "@angular/material": "^13.3.2",
++        "@angular/material": "^13.3.3",
+         "@angular/platform-browser": "~13.3.0",
+         "@angular/platform-browser-dynamic": "~13.3.0",
+         "@angular/router": "~13.3.0",
+@@ -346,9 +346,9 @@
+       }
+     },
+     "node_modules/@angular/cdk": {
+-      "version": "13.3.2",
+-      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-13.3.2.tgz",
+-      "integrity": "sha512-Rb+SvQpjXqa0kedk/6nG57f8dC4uG1q35SR6mt6jCz84ikyS2zhikVbzaxLdG15uDvq1+N5Vx3NTSgH19XUSug==",
++      "version": "13.3.3",
++      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-13.3.3.tgz",
++      "integrity": "sha512-dzd31mta2VwffxbeO4CelMqb7WswLnkC/r2QZXySnc0CTmj44HqXkqdZuEvVgxaKRVpxsYeuBuhhhy8U00YMOw==",
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+@@ -593,15 +593,15 @@
+       }
+     },
+     "node_modules/@angular/material": {
+-      "version": "13.3.2",
+-      "resolved": "https://registry.npmjs.org/@angular/material/-/material-13.3.2.tgz",
+-      "integrity": "sha512-agIuNcN1wO05ODEXc0wwrMK2ydnhPGO8tcBBCJXrDgiA/ktwm+WtfOsiZwPoev7aJ8pactVhxT5R0bJ6vW2SmA==",
++      "version": "13.3.3",
++      "resolved": "https://registry.npmjs.org/@angular/material/-/material-13.3.3.tgz",
++      "integrity": "sha512-PkZ7VW3/7tqdBHSOOmq7com7Ir147OEe1+kfgF/G3y8WUutI9jY2cHKARXGWB+5WgcqKr7ol43u239UGkPfFHg==",
+       "dependencies": {
+         "tslib": "^2.3.0"
+       },
+       "peerDependencies": {
+         "@angular/animations": "^13.0.0 || ^14.0.0-0",
+-        "@angular/cdk": "13.3.2",
++        "@angular/cdk": "13.3.3",
+         "@angular/common": "^13.0.0 || ^14.0.0-0",
+         "@angular/core": "^13.0.0 || ^14.0.0-0",
+         "@angular/forms": "^13.0.0 || ^14.0.0-0",
+@@ -12785,9 +12785,9 @@
+       }
+     },
+     "@angular/cdk": {
+-      "version": "13.3.2",
+-      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-13.3.2.tgz",
+-      "integrity": "sha512-Rb+SvQpjXqa0kedk/6nG57f8dC4uG1q35SR6mt6jCz84ikyS2zhikVbzaxLdG15uDvq1+N5Vx3NTSgH19XUSug==",
++      "version": "13.3.3",
++      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-13.3.3.tgz",
++      "integrity": "sha512-dzd31mta2VwffxbeO4CelMqb7WswLnkC/r2QZXySnc0CTmj44HqXkqdZuEvVgxaKRVpxsYeuBuhhhy8U00YMOw==",
+       "requires": {
+         "parse5": "^5.0.0",
+         "tslib": "^2.3.0"
+@@ -12955,9 +12955,9 @@
+       }
+     },
+     "@angular/material": {
+-      "version": "13.3.2",
+-      "resolved": "https://registry.npmjs.org/@angular/material/-/material-13.3.2.tgz",
+-      "integrity": "sha512-agIuNcN1wO05ODEXc0wwrMK2ydnhPGO8tcBBCJXrDgiA/ktwm+WtfOsiZwPoev7aJ8pactVhxT5R0bJ6vW2SmA==",
++      "version": "13.3.3",
++      "resolved": "https://registry.npmjs.org/@angular/material/-/material-13.3.3.tgz",
++      "integrity": "sha512-PkZ7VW3/7tqdBHSOOmq7com7Ir147OEe1+kfgF/G3y8WUutI9jY2cHKARXGWB+5WgcqKr7ol43u239UGkPfFHg==",
+       "requires": {
+         "tslib": "^2.3.0"
+       }
+Index: ../AcademicInfoClient/src/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n    background: rgb(20,79,93);\r\n    background: linear-gradient(90deg, rgba(20,79,93,1) 0%, rgba(96,161,121,1) 100%);\r\n}\r\n.form-container{\r\n    position: absolute;\r\n    top:50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    height:60%;\r\n    width:40%;\r\n    background: #a5c596;\r\n    font-family: Verdana, Geneva, Tahoma, sans-serif;\r\n}\r\nhtml, body { height: 100%; }\r\nbody { margin: 0; font-family: Roboto, \"Helvetica Neue\", sans-serif; }\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/src/styles.css b/../AcademicInfoClient/src/styles.css
+--- a/../AcademicInfoClient/src/styles.css	
++++ b/../AcademicInfoClient/src/styles.css	
+@@ -15,3 +15,6 @@
+ }
+ html, body { height: 100%; }
+ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
++
++html, body { height: 100%; }
++body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+Index: ../AcademicInfoClient/angular.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"$schema\": \"./node_modules/@angular/cli/lib/config/schema.json\",\r\n  \"version\": 1,\r\n  \"newProjectRoot\": \"projects\",\r\n  \"projects\": {\r\n    \"AcademicInfoClient\": {\r\n      \"projectType\": \"application\",\r\n      \"schematics\": {\r\n        \"@schematics/angular:application\": {\r\n          \"strict\": true\r\n        }\r\n      },\r\n      \"root\": \"\",\r\n      \"sourceRoot\": \"src\",\r\n      \"prefix\": \"app\",\r\n      \"architect\": {\r\n        \"build\": {\r\n          \"builder\": \"@angular-devkit/build-angular:browser\",\r\n          \"options\": {\r\n            \"outputPath\": \"dist/academic-info-client\",\r\n            \"index\": \"src/index.html\",\r\n            \"main\": \"src/main.ts\",\r\n            \"polyfills\": \"src/polyfills.ts\",\r\n            \"tsConfig\": \"tsconfig.app.json\",\r\n            \"assets\": [\r\n              \"src/favicon.ico\",\r\n              \"src/assets\"\r\n            ],\r\n            \"styles\": [\r\n              \"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css\",\r\n              \"src/styles.css\"\r\n            ],\r\n            \"scripts\": []\r\n          },\r\n          \"configurations\": {\r\n            \"production\": {\r\n              \"budgets\": [\r\n                {\r\n                  \"type\": \"initial\",\r\n                  \"maximumWarning\": \"500kb\",\r\n                  \"maximumError\": \"1mb\"\r\n                },\r\n                {\r\n                  \"type\": \"anyComponentStyle\",\r\n                  \"maximumWarning\": \"2kb\",\r\n                  \"maximumError\": \"4kb\"\r\n                }\r\n              ],\r\n              \"fileReplacements\": [\r\n                {\r\n                  \"replace\": \"src/environments/environment.ts\",\r\n                  \"with\": \"src/environments/environment.prod.ts\"\r\n                }\r\n              ],\r\n              \"outputHashing\": \"all\"\r\n            },\r\n            \"development\": {\r\n              \"buildOptimizer\": false,\r\n              \"optimization\": false,\r\n              \"vendorChunk\": true,\r\n              \"extractLicenses\": false,\r\n              \"sourceMap\": true,\r\n              \"namedChunks\": true\r\n            }\r\n          },\r\n          \"defaultConfiguration\": \"production\"\r\n        },\r\n        \"serve\": {\r\n          \"builder\": \"@angular-devkit/build-angular:dev-server\",\r\n          \"configurations\": {\r\n            \"production\": {\r\n              \"browserTarget\": \"AcademicInfoClient:build:production\"\r\n            },\r\n            \"development\": {\r\n              \"browserTarget\": \"AcademicInfoClient:build:development\"\r\n            }\r\n          },\r\n          \"defaultConfiguration\": \"development\",\r\n          \"options\": {\r\n            \"proxyConfig\": \"src/proxy.conf.js\"\r\n          }\r\n        },\r\n        \"extract-i18n\": {\r\n          \"builder\": \"@angular-devkit/build-angular:extract-i18n\",\r\n          \"options\": {\r\n            \"browserTarget\": \"AcademicInfoClient:build\"\r\n          }\r\n        },\r\n        \"test\": {\r\n          \"builder\": \"@angular-devkit/build-angular:karma\",\r\n          \"options\": {\r\n            \"main\": \"src/test.ts\",\r\n            \"polyfills\": \"src/polyfills.ts\",\r\n            \"tsConfig\": \"tsconfig.spec.json\",\r\n            \"karmaConfig\": \"karma.conf.js\",\r\n            \"assets\": [\r\n              \"src/favicon.ico\",\r\n              \"src/assets\"\r\n            ],\r\n            \"styles\": [\r\n              \"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css\",\r\n              \"src/styles.css\"\r\n            ],\r\n            \"scripts\": []\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"defaultProject\": \"AcademicInfoClient\"\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../AcademicInfoClient/angular.json b/../AcademicInfoClient/angular.json
+--- a/../AcademicInfoClient/angular.json	
++++ b/../AcademicInfoClient/angular.json	
+@@ -27,7 +27,7 @@
+               "src/assets"
+             ],
+             "styles": [
+-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
++              "src/custom-theme.scss",
+               "src/styles.css"
+             ],
+             "scripts": []
