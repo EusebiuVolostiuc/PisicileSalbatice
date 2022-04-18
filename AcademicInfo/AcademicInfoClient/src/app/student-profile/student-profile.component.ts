@@ -31,7 +31,7 @@ export class StudentProfileComponent implements OnInit {
       year : this.addStudentForm.value.year,
       group: this.addStudentForm.value.group
     }
-    this.http.post('http://localhost:4200/api/student/', studentData)
+    this.http.post('http://localhost:4200/api/student', studentData)
       .subscribe(response => {
         console.log('post response ', response);
       })

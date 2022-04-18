@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NpwB7GpvG/AiWMhWGWrzmQ8gn53D4ZdtKqiAYsk1GyRgTLENNSTJCZaBDJT7gt1XjVoEWzFEnIjbC3wQeIb7zA==",
+  "dgSpecHash": "VWcR32HuFFEbwli5mAm+1eECelxxJwjflrcf1AmJ/YKJwm8IaoxGSs3cogpSoD7IhQIQXhBc1EWuJuMdBuAtNA==",
   "success": true,
   "projectFilePath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
   "expectedPackageFiles": [
@@ -64,12 +64,5 @@
     "C:\\Users\\Tavi\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Tavi\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -30,7 +30,7 @@ export class StudentFormComponent implements OnInit {
       year : this.studentForm.value.Year,
       group: this.studentForm.value.Group
     }
-    this.http.post('http://localhost:4200/api/student/', studentData)
+    this.http.post('https://localhost:4200/api/student', studentData)
       .subscribe(response => {
         console.log('post response ', response);
       })

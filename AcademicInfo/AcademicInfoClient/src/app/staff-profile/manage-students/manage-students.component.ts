@@ -35,7 +35,7 @@ export class ManageStudentsComponent implements OnInit {
   }
 
   loadStudents() {
-    this.http.get('http://localhost:4200/api/student/').pipe(map(responseData => {
+    this.http.get('https://localhost:4200/api/student').pipe(map(responseData => {
       const postArr = []
       for (const key in responseData) {
         if (responseData.hasOwnProperty(key)) {

@@ -11,9 +11,8 @@ import {Router} from "@angular/router";
 export class LoginFormComponent implements OnInit {
   iconImg:string = "src\\assets\\img\\img.png"
   public loginForm: FormGroup
-  public http: HttpClient
-
-  constructor(private router:Router) { }
+ 
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -23,10 +22,19 @@ export class LoginFormComponent implements OnInit {
   }
 
 
-  // authenticateUser() {
-  // this.http.post('http://localhost/')
-  // }
   authenticateUser() {
-    this.router.navigateByUrl('staff-component')
-  }
+
+    const loginData = {
+      userId: this.loginForm.value.username,
+      password: this.loginForm.value.password
+    }
+
+    this.http.post('https://localhost:4200/api/authenticate', loginData)
+      .subscribe(response => {
+        console.log('post response ', response);
+      })
+   }
+  //authenticateUser() {
+  //    this.router.navigateByUrl('staff-component');
+  //}
 }
