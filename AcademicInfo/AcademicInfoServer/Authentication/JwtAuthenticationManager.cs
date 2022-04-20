@@ -23,11 +23,11 @@ namespace AcademicInfoServer.Authentication
             this.key = key;
         }
 
-        public SecurityToken Authenticate(string userID, string password)
+        public JwtSecurityToken Authenticate(string userID, string password)
         {
             //modify if to work with db
 
-            string query = @"select userName,password from Users";
+            string query = @"select userName, accountType from Users where userName = '" + userID + "' and password = '" + password + "'";
 
 
             DataTable tbl = new DataTable();
@@ -35,6 +35,10 @@ namespace AcademicInfoServer.Authentication
             string sqlDataSource = "Data Source=.;Initial Catalog=AcademicInfo;Integrated Security = true;";
 
             SqlDataReader myReader;
+
+            bool found = false;
+
+            string userType = "";
 
             try
             {
@@ -45,8 +49,14 @@ namespace AcademicInfoServer.Authentication
                     {
                         myReader = cmd.ExecuteReader();
 
-                        tbl.Load(myReader);
-
+                        Console.WriteLine(myReader.HasRows);
+                        if (myReader.HasRows == true)
+                        {
+                            found = true;
+                            myReader.Read();
+                            userType = myReader.GetString(1);
+                        }
+                          
                         myReader.Close();
                         myCon.Close();
                     }
@@ -59,40 +69,30 @@ namespace AcademicInfoServer.Authentication
                 return null;
             }
 
-            bool ok = false;
-
-            foreach(DataRow dr in tbl.Rows)
+            if (found == true)
             {
-                string userName = dr["userName"].ToString();
-                string passwd = dr["password"].ToString();
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var Key = Encoding.ASCII.GetBytes(key);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                    new Claim(ClaimTypes.Name, userID)
+                    ,new Claim(ClaimTypes.Role, userType)
+                    }),
+                    Expires = DateTime.UtcNow.AddHours(1),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Key), SecurityAlgorithms.HmacSha256Signature)
+                };
 
-                if(userName == userID && passwd == password)
-                    ok=true;
+                var token = tokenHandler.CreateJwtSecurityToken(tokenDescriptor);
 
+                //return tokenHandler.WriteToken(token);
+
+                return token;
             }
 
-            if (ok == false)
+            else 
                 return null;
-
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenKey = Encoding.ASCII.GetBytes(key);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, userID)
-                }),
-                Expires = DateTime.UtcNow.AddHours(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-
-            //return tokenHandler.WriteToken(token);
-
-            return token;
- 
         }
     }
 }

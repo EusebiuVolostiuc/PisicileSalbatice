@@ -39,3 +39,5 @@ AcademicInfo/AcademicInfoServer/obj/
 *.pdb
 *.cache
 *.sentinel
+AcademicInfo/AcademicInfoServer/bin/Debug/net6.0/AcademicInfoServer.pdb
+AcademicInfo/AcademicInfoServer/bin/Debug/net6.0/AcademicInfoServer.dll

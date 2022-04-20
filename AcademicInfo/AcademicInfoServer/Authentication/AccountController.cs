@@ -41,7 +41,7 @@ namespace AcademicInfoServer.Authentication
         [HttpPost("authenticate") ]
         public IActionResult Authenticate([FromBody] AccountCredentials userCred)
         {
-            SecurityToken token = _jwtAuthenticationManager.Authenticate(userCred.UserID, userCred.Password);
+            JwtSecurityToken token = _jwtAuthenticationManager.Authenticate(userCred.UserID, userCred.Password);
             if (token == null)
             {
                 return Unauthorized();
@@ -52,13 +52,14 @@ namespace AcademicInfoServer.Authentication
                 var response = new
                 {
                     Message = "User Authenticated Successfully!",
-                    AccountID = userCred.UserID,
+                    Account = userCred.UserID,
+                    Role = token.Payload["role"],
                     Token = tokenHandler.WriteToken(token),
                     Issued = token.ValidFrom,
                     Expires = token.ValidTo
                 };
-                string jsonResponse = JsonConvert.SerializeObject(response);
-                return Ok(jsonResponse);
+                //return Ok(JsonConvert.SerializeObject(response));
+                return Ok();
             }    
         }
 
