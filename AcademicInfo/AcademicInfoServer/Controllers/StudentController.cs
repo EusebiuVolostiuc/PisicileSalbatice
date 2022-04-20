@@ -1,4 +1,5 @@
 ﻿using AcademicInfoServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ namespace AcademicInfoServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "student")]
     public class StudentController : ControllerBase
     {
         private readonly IConfiguration _configuration;

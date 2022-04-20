@@ -26,7 +26,7 @@ namespace AcademicInfoServer.Authentication
         }
 
         // GET api/testget5
-        [Authorize]
+        [Authorize(Roles = "student")]
         //currently not getting the authorize pass even with bearer token
         [HttpGet("testget{value}")]
         public string Get(int value)
