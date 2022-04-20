@@ -1,4 +1,5 @@
 ﻿using AcademicInfoServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -9,8 +10,10 @@ using System.Text;
 
 namespace AcademicInfoServer.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "staff")]
     public class StaffController : ControllerBase
     {
 

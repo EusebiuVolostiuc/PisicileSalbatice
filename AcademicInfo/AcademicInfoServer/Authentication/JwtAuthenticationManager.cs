@@ -11,11 +11,6 @@ namespace AcademicInfoServer.Authentication
 {
     public class JwtAuthenticationManager : IJwtAuthenticationManager
     {
-        //modify to get data from db
-        private readonly IDictionary<string, string> users = new Dictionary<string, string>()
-        {
-            {"test1","password1"}, {"test2","password2"}
-        };
 
         private readonly string key;
 
@@ -59,7 +54,6 @@ namespace AcademicInfoServer.Authentication
                     {
                         myReader = cmd.ExecuteReader();
 
-                        Console.WriteLine(myReader.HasRows);
                         if (myReader.HasRows == true)
                         {
                             found = true;
