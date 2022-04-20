@@ -13,7 +13,8 @@ namespace AcademicInfoServer.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
-   
+    [Authorize(Roles = "staff")]
+
     public class StaffController : ControllerBase
     {
 
