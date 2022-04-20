@@ -41,3 +41,4 @@ AcademicInfo/AcademicInfoServer/obj/
 *.sentinel
 AcademicInfo/AcademicInfoServer/bin/Debug/net6.0/AcademicInfoServer.pdb
 AcademicInfo/AcademicInfoServer/bin/Debug/net6.0/AcademicInfoServer.dll
+AcademicInfo/AcademicInfoServer/.vs/AcademicInfoServer/v17/.suo
