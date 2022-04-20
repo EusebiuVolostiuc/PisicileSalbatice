@@ -59,7 +59,7 @@ namespace AcademicInfoServer.Authentication
                     Expires = token.ValidTo
                 };
                 //return Ok(JsonConvert.SerializeObject(response));
-                return Ok();
+                return Ok(response);
             }    
         }
 

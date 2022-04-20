@@ -2111,24 +2111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\evolo\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Tavi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "projectUniqueName": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
       "projectName": "AcademicInfoServer",
-      "projectPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-      "packagesPath": "C:\\Users\\evolo\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\obj\\",
+      "projectPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "packagesPath": "C:\\Users\\Tavi\\.nuget\\packages\\",
+      "outputPath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\evolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Tavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace AcademicInfoServer.Authentication
@@ -25,9 +26,18 @@ namespace AcademicInfoServer.Authentication
 
         public JwtSecurityToken Authenticate(string userID, string password)
         {
-            //modify if to work with db
 
-            string query = @"select userName, accountType from Users where userName = '" + userID + "' and password = '" + password + "'";
+            MD5 md5Hash = MD5.Create();
+            // Byte array representation of source string
+            var sourceBytes = Encoding.UTF8.GetBytes(password);
+
+            // Generate hash value(Byte Array) for input data
+            var hashBytes = md5Hash.ComputeHash(sourceBytes);
+
+            // Convert hash byte array to string
+            var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+
+            string query = @"select userName, accountType from Users where userName = '" + userID + "' and password = '" + hash + "'";
 
 
             DataTable tbl = new DataTable();
