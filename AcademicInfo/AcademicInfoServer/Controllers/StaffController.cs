@@ -90,6 +90,49 @@ namespace AcademicInfoServer.Controllers
 
            
         }
+        [HttpGet]
+        public JsonResult Get()
+        {
+            string query = @"select * from Students";
+
+
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+            return new JsonResult(tbl);
+
+        }
+
+
 
         [HttpPost("add_Student")]
         public IActionResult add_Student(Student u)
@@ -282,57 +325,12 @@ namespace AcademicInfoServer.Controllers
             }
 
 
-
-
-
             //return new JsonResult("Added succesfully!\n");
             return Ok(newUser);
         }
 
 
-        [HttpGet]
-        public JsonResult Get()
-        {
-            string query = @"select * from Staff";
-
-
-            DataTable tbl = new DataTable();
-
-            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
-
-            SqlDataReader myReader;
-
-            try
-            {
-                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
-                {
-                    myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, myCon))
-                    {
-                        myReader = cmd.ExecuteReader();
-
-                        tbl.Load(myReader);
-
-                        myReader.Close();
-                        myCon.Close();
-                    }
-
-                }
-
-            }
-
-            catch(Exception ex)
-            {
-                return new JsonResult(ex.Message);
-            }
-
-
-
-            return new JsonResult(tbl);
-
-        }
-
-
+      
         [HttpPost]
         public IActionResult Post(Staff s)
         {
