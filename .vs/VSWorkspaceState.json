@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AcademicInfo",
+    "\\AcademicInfo\\AcademicInfoClient",
+    "\\AcademicInfo\\AcademicInfoClient\\src",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\login-form",
+    "\\AcademicInfo\\AcademicInfoServer",
+    "\\AcademicInfo\\AcademicInfoServer\\Controllers"
+  ],
+  "SelectedNode": "\\AcademicInfo\\AcademicInfoClient\\src\\app\\login-form\\login-form.component.ts",
+  "PreviewInSolutionExplorer": false
+}
