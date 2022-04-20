@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace AcademicInfoServer.Controllers
 {
@@ -27,12 +29,28 @@ namespace AcademicInfoServer.Controllers
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        private string add_User(Student u)
+
+        private string add_User(dynamic u)
         {
 
-            string userName = u.name + "@academicinfo";
+            string userName = u.name + "@"+ u.type + ".academicinfo.ro";
             string password= RandomString(10);
-            string query = @"insert into Users (userName,password,accountType) values ('" + userName + "','" + password + "','" + "student" + "')";
+
+            
+                MD5 md5Hash= MD5.Create();
+                // Byte array representation of source string
+                var sourceBytes = Encoding.UTF8.GetBytes(password);
+
+                // Generate hash value(Byte Array) for input data
+                var hashBytes = md5Hash.ComputeHash(sourceBytes);
+
+                // Convert hash byte array to string
+                var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+
+                
+            
+
+            string query = @"insert into Users (userName,password,accountType) values ('" + userName + "','" + hash + "','" + u.type + "')";
 
             DataTable tbl = new DataTable();
 
@@ -76,7 +94,17 @@ namespace AcademicInfoServer.Controllers
             dynamic newUser;
             try
             {
-                newUser = JsonConvert.DeserializeObject(add_User(u));
+                dynamic user = new
+                {
+
+                    name = u.name,
+                    type = "student"
+   
+
+                };
+
+  
+                newUser = JsonConvert.DeserializeObject(add_User(user));
             }
 
             catch (Exception ex)
