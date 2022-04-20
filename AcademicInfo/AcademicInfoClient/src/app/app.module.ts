@@ -19,13 +19,16 @@ import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { ManageStudentsComponent } from './staff-profile/manage-students/manage-students.component';
 import { StudentFormComponent } from './staff-profile/manage-students/student-form/student-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 
 
 const routes: Routes = [
   {path:'', component:LoginFormComponent},
   { path: 'staff-component', component: StaffProfileComponent },
   { path: 'manage-students-component', component: ManageStudentsComponent },
-  { path: 'student-form-component', component: StudentFormComponent }
+  { path: 'student-form-component', component: StudentFormComponent },
+  {path:'student-component',component:StudentProfileComponent},
+  {path:'teacher-component',component:TeacherProfileComponent}
 ];
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ const routes: Routes = [
     StudentProfileComponent,
     StaffProfileComponent,
     ManageStudentsComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    TeacherProfileComponent
   ],
   imports: [
     RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
