@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "AcademicInfoClient", "AcademicInfoClient\AcademicInfoClient.esproj", "{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7A7D949B-224F-4CC2-8AE3-F105E1DC685C} = {7A7D949B-224F-4CC2-8AE3-F105E1DC685C}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcademicInfoServer", "AcademicInfoServer\AcademicInfoServer.csproj", "{7A7D949B-224F-4CC2-8AE3-F105E1DC685C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78332E6D-A7F6-4DB2-B6E1-4E8DE6573319}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7A7D949B-224F-4CC2-8AE3-F105E1DC685C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A7D949B-224F-4CC2-8AE3-F105E1DC685C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A7D949B-224F-4CC2-8AE3-F105E1DC685C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A7D949B-224F-4CC2-8AE3-F105E1DC685C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {780AFEA6-34A2-41C9-A645-118FA12EC30C}
+	EndGlobalSection
+EndGlobal

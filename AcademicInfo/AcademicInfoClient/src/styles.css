@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background: rgb(20,79,93);
+    background: linear-gradient(90deg, rgba(20,79,93,1) 0%, rgba(96,161,121,1) 100%);
+}
+.form-container{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:60%;
+    width:40%;
+    background: #a5c596;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
