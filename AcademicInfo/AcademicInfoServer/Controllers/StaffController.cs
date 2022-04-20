@@ -13,7 +13,7 @@ namespace AcademicInfoServer.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "staff")]
+   
     public class StaffController : ControllerBase
     {
 
@@ -189,6 +189,106 @@ namespace AcademicInfoServer.Controllers
             return Ok(newUser);
         }
 
+        [HttpPost("add_Teacher")]
+        public IActionResult add_Teacher(Teacher u)
+        {
+
+            dynamic newUser;
+            try
+            {
+                dynamic user = new
+                {
+
+                    name = u.Name,
+                    type = "teacher"
+
+
+                };
+
+
+                newUser = JsonConvert.DeserializeObject(add_User(user));
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            string query = @"select accountId from Users where userName= '" + newUser.userN + "'";
+
+            Console.WriteLine(query);
+
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            int id = -1;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+                        myReader.Read();
+
+                        id = (int)myReader["accountId"];
+
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+
+
+            string query2 = @"insert into Teachers values (" + id + ",'" + u.Name + "','" + u.department + "','" + u.type + "')";
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query2, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+
+
+            //return new JsonResult("Added succesfully!\n");
+            return Ok(newUser);
+        }
+
+
         [HttpGet]
         public JsonResult Get()
         {
@@ -233,12 +333,23 @@ namespace AcademicInfoServer.Controllers
 
 
         [HttpPost]
-        public JsonResult Post(Staff s)
+        public IActionResult Post(Staff s)
         {
 
+            dynamic user = new
+            {
 
-            string query = @"insert into Staff values (" + s.userId + ",'" + s.name +"')";
+                name = s.name,
+                type = "staff"
 
+
+            };
+
+            var newUser = JsonConvert.DeserializeObject(add_User(user));
+
+            string query = @"select accountId from Users where userName= '" + newUser.userN + "'";
+
+            Console.WriteLine(query);
 
             DataTable tbl = new DataTable();
 
@@ -246,12 +357,48 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
+            int id = -1;
+
             try
             {
                 using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
                     myCon.Open();
                     using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+
+                        myReader = cmd.ExecuteReader();
+                        myReader.Read();
+
+                        id = (int)myReader["accountId"];
+
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+
+
+
+            string query2 = @"insert into Staff values (" + id + ",'" + s.name +"')" ;
+
+
+      
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query2, myCon))
                     {
                         myReader = cmd.ExecuteReader();
 
@@ -269,9 +416,9 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-           
 
-            return new JsonResult("Added succesfully!");
+
+            return Ok(newUser);
 
         }
 
