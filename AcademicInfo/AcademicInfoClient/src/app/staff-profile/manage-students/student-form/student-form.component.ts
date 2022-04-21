@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
+import { concat } from 'rxjs';
 @Component({
   selector: 'app-student-form',
   templateUrl: './student-form.component.html',
@@ -15,7 +16,6 @@ export class StudentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentForm = new FormGroup({
-      UserID: new FormControl('', [Validators.required]),
       Name : new FormControl('', [Validators.required]),
       Department : new FormControl('', [Validators.required]),
       Year : new FormControl('', [Validators.required]),
@@ -24,13 +24,26 @@ export class StudentFormComponent implements OnInit {
 }
   addStudent() {
     const studentData = {
-      userId : this.studentForm.value.UserID,
+   
       department : this.studentForm.value.Department,
       name : this.studentForm.value.Name,
       year : this.studentForm.value.Year,
       group: this.studentForm.value.Group
     }
-    this.http.post('https://localhost:4200/api/student', studentData)
+
+    var token = localStorage.getItem('token');
+
+    var tokenise = "Bearer " + token;
+
+
+    var headers = new HttpHeaders().set("Authorization", tokenise);
+
+    const httpOptions = {
+      headers: headers
+    };
+
+    this.http.post('https://localhost:4200/api/staff/add_Student', studentData, httpOptions
+    )
       .subscribe(response => {
         console.log('post response ', response);
       })

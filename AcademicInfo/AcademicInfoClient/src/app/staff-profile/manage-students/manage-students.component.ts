@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map} from "rxjs";
 
 interface Student {
@@ -34,8 +34,21 @@ export class ManageStudentsComponent implements OnInit {
     this.router.navigateByUrl('student-form-component');
   }
 
+
+
   loadStudents() {
-    this.http.get('https://localhost:4200/api/student').pipe(map(responseData => {
+
+    var token = localStorage.getItem('token');
+
+    var tokenise = "Bearer " + token;
+
+    var headers = new HttpHeaders().set("Authorization", tokenise);
+
+    const httpOptions = {
+      headers: headers
+    };
+
+    this.http.get('https://localhost:4200/api/staff/get_Students', httpOptions).pipe(map(responseData => {
       const postArr = []
       for (const key in responseData) {
         if (responseData.hasOwnProperty(key)) {

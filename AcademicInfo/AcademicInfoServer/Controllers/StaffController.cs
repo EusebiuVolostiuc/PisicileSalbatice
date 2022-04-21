@@ -90,7 +90,7 @@ namespace AcademicInfoServer.Controllers
 
            
         }
-        [HttpGet]
+        [HttpGet("get_Students")]
         public JsonResult Get()
         {
             string query = @"select * from Students";

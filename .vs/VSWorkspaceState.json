@@ -2,11 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\AcademicInfo",
+    "\\AcademicInfo\\AcademicInfoClient",
+    "\\AcademicInfo\\AcademicInfoClient\\src",
     "\\AcademicInfo\\AcademicInfoClient\\src\\app",
-    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\login-form",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students\\student-form",
     "\\AcademicInfo\\AcademicInfoServer",
     "\\AcademicInfo\\AcademicInfoServer\\Controllers"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfoServer\\Controllers",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students\\student-form\\student-form.component.ts",
   "PreviewInSolutionExplorer": false
 }

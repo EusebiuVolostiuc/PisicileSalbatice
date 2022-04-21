@@ -52,6 +52,7 @@ builder.Services.AddAuthentication(x =>
     options.Audience = "quality";
 });
 
+
 builder.Services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(privateKey));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
