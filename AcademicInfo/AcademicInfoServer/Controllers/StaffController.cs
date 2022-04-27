@@ -36,8 +36,10 @@ namespace AcademicInfoServer.Controllers
 
         private string add_User(dynamic u)
         {
+            string name_ = u.name.Replace(" ", String.Empty);
+            string type_=u.type.Replace(" ",String.Empty);
 
-            string userName = u.name + "@"+ u.type + ".academicinfo.ro";
+            string userName = name_ + "@"+ type_ + ".academicinfo.ro";
             string password= RandomString(10);
 
             

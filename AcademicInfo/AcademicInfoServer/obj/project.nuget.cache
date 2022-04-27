@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VWcR32HuFFEbwli5mAm+1eECelxxJwjflrcf1AmJ/YKJwm8IaoxGSs3cogpSoD7IhQIQXhBc1EWuJuMdBuAtNA==",
+  "dgSpecHash": "I+zrLrthSEajsDe5IifiY9LOBZK6XhJ6P+D2M7wjJrX9YJ2F69p5kjR5nF38ok7RDDoK0TfSEmOQ4IbxNFRKww==",
   "success": true,
-  "projectFilePath": "D:\\iss\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+  "projectFilePath": "D:\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tavi\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Tavi\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -6,11 +6,10 @@
     "\\AcademicInfo\\AcademicInfoClient\\src",
     "\\AcademicInfo\\AcademicInfoClient\\src\\app",
     "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile",
-    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students",
     "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students\\student-form",
     "\\AcademicInfo\\AcademicInfoServer",
     "\\AcademicInfo\\AcademicInfoServer\\Controllers"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\manage-students\\student-form\\student-form.component.ts",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfo.sln",
   "PreviewInSolutionExplorer": false
 }
