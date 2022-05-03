@@ -84,7 +84,7 @@ namespace AcademicInfoServer.Authentication
                     new Claim(ClaimTypes.Name, userID)
                     ,new Claim(ClaimTypes.Role, userType)
                     }),
-                    Expires = DateTime.UtcNow.AddHours(1),
+                    Expires = DateTime.UtcNow.AddMinutes(30),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Key), SecurityAlgorithms.HmacSha256Signature)
                 };
 

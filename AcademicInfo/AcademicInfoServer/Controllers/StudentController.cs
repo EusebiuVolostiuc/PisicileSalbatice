@@ -108,13 +108,60 @@ namespace AcademicInfoServer.Controllers
             return new JsonResult("Deleted succesfully!");
         }
 
+        // get /api/student
+        [HttpGet]
+        public IActionResult GetStudent()
+        {
+            string user = Authentication.AccountController.getUserFromRequest(HttpContext.Request);
+
+            if (user == null)
+            {
+                return BadRequest("Invalid Token");
+            }
 
 
+            SqlDataReader myReader;
 
+            DataTable tbl = new DataTable();
 
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");;
 
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(@"exec getStudentInfo  @userName = '" + user + "';", myCon)
+                    {
+
+                    })
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == true)
+                        {
+                            tbl.Load(myReader);
+
+                            return Ok(tbl);
+                        }
+                        else
+                        {
+                            return NotFound();
+                        }
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex) {
+
+             return new JsonResult(ex.Message);
+
+            }
+        }
     }
-
 }
 
             
