@@ -161,6 +161,86 @@ namespace AcademicInfoServer.Controllers
 
             }
         }
+
+        [HttpGet("get_Courses")]
+
+        public IActionResult get_Courses()
+        {
+
+            string query = "select * from courses where courseType='m'";
+
+            SqlDataReader myReader;
+
+            DataTable tbl=new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            return new JsonResult(tbl);
+        }
+
+
+
+        [HttpGet("get_Optionals")]
+
+        public IActionResult get_Optionals()
+        {
+
+            string query = "select * from courses where courseType='o'";
+
+            SqlDataReader myReader;
+
+            DataTable tbl = new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            return new JsonResult(tbl);
+        }
+
+
     }
 }
 
