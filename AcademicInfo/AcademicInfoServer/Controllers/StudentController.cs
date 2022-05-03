@@ -112,9 +112,9 @@ namespace AcademicInfoServer.Controllers
         [HttpGet]
         public IActionResult GetStudent()
         {
-            string user = Authentication.AccountController.getUserFromRequest(HttpContext.Request);
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
 
-            if (user == null)
+            if (userID == null)
             {
                 return BadRequest("Invalid Token");
             }
@@ -131,7 +131,7 @@ namespace AcademicInfoServer.Controllers
                 using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(@"exec getStudentInfo  @userName = '" + user + "';", myCon)
+                    using (SqlCommand cmd = new SqlCommand(@"select top 1 Name, department, year, groupp from Students where userID = " + userID + ";", myCon)
                     {
 
                     })

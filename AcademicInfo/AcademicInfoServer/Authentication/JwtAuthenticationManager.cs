@@ -32,7 +32,7 @@ namespace AcademicInfoServer.Authentication
             // Convert hash byte array to string
             var hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
 
-            string query = @"select userName, accountType from Users where userName = '" + userID + "' and password = '" + hash + "'";
+            string query = @"select accountType, accountId from Users where userName = '" + userID + "' and password = '" + hash + "'";
 
 
             DataTable tbl = new DataTable();
@@ -44,6 +44,7 @@ namespace AcademicInfoServer.Authentication
             bool found = false;
 
             string userType = "";
+            string userCode = "";
 
             try
             {
@@ -58,7 +59,8 @@ namespace AcademicInfoServer.Authentication
                         {
                             found = true;
                             myReader.Read();
-                            userType = myReader.GetString(1);
+                            userType = myReader.GetString(0);
+                            userCode = myReader.GetValue(1).ToString();
                         }
                           
                         myReader.Close();
@@ -81,7 +83,7 @@ namespace AcademicInfoServer.Authentication
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                    new Claim(ClaimTypes.Name, userID)
+                    new Claim(ClaimTypes.Name, userCode)
                     ,new Claim(ClaimTypes.Role, userType)
                     }),
                     Expires = DateTime.UtcNow.AddMinutes(30),
