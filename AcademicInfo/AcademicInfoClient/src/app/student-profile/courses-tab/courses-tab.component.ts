@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 interface Course {
   name:string
@@ -26,7 +27,7 @@ export class CoursesTabComponent implements OnInit {
     {
       columnDef: 'name',
       header: 'Course',
-      cell: (element: Course) => `${element.name}`,
+      cell: (element: Course) => "`${element.name}`",
     },
     {
       columnDef: 'department',
@@ -56,15 +57,34 @@ export class CoursesTabComponent implements OnInit {
     {
       columnDef: 'teacher',
       header: 'Teacher',
-      cell: (element: Course) => `${element.teacher}`,
+      cell: (element: Course) => "`${element.teacher}`",
     },
   ];
   dataSource = ELEMENT_DATA;
   displayedColumns = this.columns.map(c => c.columnDef);
-
-  constructor() { }
+  courses: Course[]
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    var token = localStorage.getItem('token');
+
+    var tokenise = "Bearer " + token;
+
+
+    var headers = new HttpHeaders().set("Authorization", tokenise);
+
+    const httpOptions = {
+      headers: headers
+    }
+    this.http.get('https://localhost:4200/api/student/get_Courses',httpOptions)
+      .subscribe(response => {
+        var courses_ = Object.values(response)
+        let postArr: any[];
+        postArr = [];
+        courses_.forEach(element => postArr.push(element));
+        this.courses=postArr;
+        console.log(this.courses);
+      })
   }
 
 }

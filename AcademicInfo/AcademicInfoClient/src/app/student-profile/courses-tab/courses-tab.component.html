@@ -1,5 +1,5 @@
 <div fxFlexAlign="center center" style="margin-top: 50px">
-<table fxFlexFill mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+<table fxFlexFill mat-table [dataSource]="courses" class="mat-elevation-z8 demo-table">
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
       <th mat-header-cell *matHeaderCellDef>
         {{column.header}}
