@@ -18,7 +18,7 @@ namespace AcademicInfoServer.Authentication
             this._jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
-        public static String getUserFromRequest(HttpRequest Request)
+        public static String getUserIDFromRequest(HttpRequest Request)
         {
             try
             {
