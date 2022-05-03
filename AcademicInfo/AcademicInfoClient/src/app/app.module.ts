@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -20,6 +21,8 @@ import { ManageStudentsComponent } from './staff-profile/manage-students/manage-
 import { StudentFormComponent } from './staff-profile/manage-students/student-form/student-form.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
+import { CoursesTabComponent } from './student-profile/courses-tab/courses-tab.component';
+import { OptionalsTabComponent } from './student-profile/optionals-tab/optionals-tab.component';
 
 
 const routes: Routes = [
@@ -38,12 +41,14 @@ const routes: Routes = [
     StaffProfileComponent,
     ManageStudentsComponent,
     StudentFormComponent,
-    TeacherProfileComponent
+    TeacherProfileComponent,
+    CoursesTabComponent,
+    OptionalsTabComponent
   ],
   imports: [
     RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
     MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
-    MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule
+    MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule,MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
