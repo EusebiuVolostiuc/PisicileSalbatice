@@ -10,12 +10,6 @@ interface Course {
   courseType:string,
   teacher:string
 }
-const ELEMENT_DATA: Course[] = [
-  {name: "Course1", department: 'Dep', year:1,semester:1,credits:5,courseType:"mandatory",teacher:"teacher name"},
-  {name: "Course1", department: 'Dep', year:1,semester:1,credits:5,courseType:"mandatory",teacher:"teacher name"},
-  {name: "Course1", department: 'Dep', year:1,semester:1,credits:5,courseType:"mandatory",teacher:"teacher name"},
-  {name: "Course1", department: 'Dep', year:1,semester:1,credits:5,courseType:"mandatory",teacher:"teacher name"}
-];
 
 @Component({
   selector: 'app-courses-tab',
@@ -27,7 +21,7 @@ export class CoursesTabComponent implements OnInit {
     {
       columnDef: 'name',
       header: 'Course',
-      cell: (element: Course) => "`${element.name}`",
+      cell: (element: Course) => "course name",
     },
     {
       columnDef: 'department',
@@ -57,10 +51,10 @@ export class CoursesTabComponent implements OnInit {
     {
       columnDef: 'teacher',
       header: 'Teacher',
-      cell: (element: Course) => "`${element.teacher}`",
+      cell: (element: Course) => "teacher name",
     },
   ];
-  dataSource = ELEMENT_DATA;
+
   displayedColumns = this.columns.map(c => c.columnDef);
   courses: Course[]
   constructor(private http: HttpClient) { }
