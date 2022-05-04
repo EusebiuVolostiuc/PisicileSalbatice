@@ -218,6 +218,8 @@ namespace AcademicInfoServer.Controllers
         [HttpPost("grade_Student")]
         public IActionResult grade_Student(Grade g)
         {
+
+
             string q = "insert into Grades values (" + g.studentID + "," + g.courseID + "," + g.value + "," + g.weight +")";
 
             DataTable dt = new DataTable();
@@ -251,8 +253,58 @@ namespace AcademicInfoServer.Controllers
             return Ok("Student Graded!");
         }
 
+        [HttpGet("get_Teacher")]
+        public IActionResult get_Teacher()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+
+            string q = "select * from teachers where userID="+id;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr= cmd.ExecuteReader();
+                        dt.Load(dr);
+
+                        return new JsonResult(dt);
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return Ok("Student Graded!");
+        
 
     }
+
+
+}
 
 
 
