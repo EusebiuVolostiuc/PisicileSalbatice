@@ -167,7 +167,15 @@ namespace AcademicInfoServer.Controllers
         public IActionResult get_Courses()
         {
 
-            string query = "select * from courses where courseType='m'";
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string query = "select * from Courses where courseID in (select courseID from StudentsCourses where studentID ="+ userID +")";
 
             SqlDataReader myReader;
 
