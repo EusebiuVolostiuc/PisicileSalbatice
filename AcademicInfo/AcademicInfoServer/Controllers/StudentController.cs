@@ -24,7 +24,7 @@ namespace AcademicInfoServer.Controllers
         
 
         [HttpPut]
-        public JsonResult Put(Student s)
+        public IActionResult Put(Student s)
         {
 
 
@@ -185,6 +185,8 @@ namespace AcademicInfoServer.Controllers
 
 
             string query = "select * from Courses where courseID in (select courseID from StudentsCourses where studentID ="+ userID +")";
+
+            
 
             SqlDataReader myReader;
 
