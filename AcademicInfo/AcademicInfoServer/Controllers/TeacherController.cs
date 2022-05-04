@@ -215,8 +215,46 @@ namespace AcademicInfoServer.Controllers
 
         }
 
+        [HttpPost("grade_Student")]
+        public IActionResult grade_Student(Grade g)
+        {
+            string q = "insert into Grades values (" + g.studentID + "," + g.courseID + "," + g.value + "," + g.weight +")";
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return Ok("Student Graded!");
+        }
+
 
     }
+
+
 
 }
     

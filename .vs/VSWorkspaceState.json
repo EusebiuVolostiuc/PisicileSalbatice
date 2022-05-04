@@ -3,8 +3,9 @@
     "",
     "\\AcademicInfo",
     "\\AcademicInfo\\AcademicInfoServer",
-    "\\AcademicInfo\\AcademicInfoServer\\Controllers"
+    "\\AcademicInfo\\AcademicInfoServer\\Controllers",
+    "\\AcademicInfo\\AcademicInfoServer\\Models"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfoServer\\Controllers\\TeacherController.cs",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfo.sln",
   "PreviewInSolutionExplorer": false
 }
