@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Text;
 
 namespace AcademicInfoServer.Controllers
 {
@@ -215,6 +215,63 @@ namespace AcademicInfoServer.Controllers
             {
                 return new JsonResult(ex.Message);
             }
+
+            List<int> ls=new List<int>();
+
+            foreach(DataRow dr in tbl.Rows)
+            {
+                ls.Add(Convert.ToInt32(dr["teacherID"]));
+            }
+
+            string q2 = "select Name from teachers where userID in (";
+
+            for(int i=0;i<ls.Count;i++)
+            {
+                q2+=ls[i];
+                q2 += ",";
+            }
+
+            StringBuilder sb=new StringBuilder(q2);
+
+            sb[sb.Length-1]=')';
+
+            q2=sb.ToString();
+
+            Console.WriteLine(q2);
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                       DataTable dt2=new DataTable();
+
+                        dt2.Load(myReader);
+
+                        tbl.Columns.Add("TeacherName");
+
+                        int i = 0;
+                        foreach(DataRow dr in tbl.Rows)
+                        {
+                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            i++;
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch(Exception ex)
+            { return new JsonResult(ex.Message);}
+
+          
+            
 
             return new JsonResult(tbl);
         }
