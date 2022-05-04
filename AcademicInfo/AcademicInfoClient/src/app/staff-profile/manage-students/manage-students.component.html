@@ -3,8 +3,9 @@
     <button mat-raised-button style="float:right" (click)="load_student_form()">Add student</button>
   </mat-card>
   <table mat-table [dataSource]="students" class="mat-elevation-z8">
+
     <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <th mat-header-cell *matHeaderCellDef> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.userID}} </td>
     </ng-container>
 

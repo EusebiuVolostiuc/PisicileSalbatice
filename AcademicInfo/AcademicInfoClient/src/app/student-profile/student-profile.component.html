@@ -1,4 +1,17 @@
-<p>student-profile works!</p>
+<mat-card class="side-bar" fxLayout="column">
+  <mat-card-title>{{name}}</mat-card-title>
+  <mat-card-title>{{department}}</mat-card-title>
+  <mat-card-title>{{year}}</mat-card-title>
+  <mat-card-title>{{group}}</mat-card-title>
+  <button mat-raised-button style="margin-top: 80%" (click)="logout()">Logout</button>
+</mat-card>
+<mat-tab-group class="tabs">
+  <mat-tab label="Courses">
+    <app-courses-tab></app-courses-tab>
+  </mat-tab>
+  <mat-tab label="Optionals"><app-optionals-tab></app-optionals-tab></mat-tab>
+</mat-tab-group>
+
 <!--
 <div fxLayoutAlign="center center" fxFlexFill>
   <mat-card fxFlex="25" fxLayout="row">

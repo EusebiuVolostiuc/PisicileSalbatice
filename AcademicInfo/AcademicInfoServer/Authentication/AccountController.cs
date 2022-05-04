@@ -18,6 +18,26 @@ namespace AcademicInfoServer.Authentication
             this._jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
+        public static String getUserIDFromRequest(HttpRequest Request)
+        {
+            try
+            {
+                string tokenStr = Request.Headers["Authorization"];
+
+                tokenStr = tokenStr.Replace("Bearer ", "");
+
+                var handler = new JwtSecurityTokenHandler();
+
+                var token = handler.ReadJwtToken(tokenStr);
+
+                var user = token.Payload["unique_name"].ToString();
+
+                return user;
+
+            }
+            catch { return null; }
+        }
+
         // GET: api/<NameController>
         [HttpGet]
         public IEnumerable<string> Get()
