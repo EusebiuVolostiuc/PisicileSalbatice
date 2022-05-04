@@ -140,7 +140,7 @@ namespace AcademicInfoServer.Controllers
                 using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(@"select top 1 Name, department, year, groupp from Students where userID = " + userID + ";", myCon)
+                    using (SqlCommand cmd = new SqlCommand(@"select * from Students where userID = " + userID + ";", myCon)
                     {
 
                     })
