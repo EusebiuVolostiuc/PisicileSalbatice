@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teacher-profile.component.css']
 })
 export class TeacherProfileComponent implements OnInit {
+  name: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.name=localStorage.getItem("account");
   }
 
 }

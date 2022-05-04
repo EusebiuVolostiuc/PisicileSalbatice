@@ -34,6 +34,7 @@ export class LoginFormComponent implements OnInit {
         var res =Object.values(response)
         console.log(res);
         localStorage.setItem('token', res[3]);
+        localStorage.setItem('account',res[1]);
         if(res[2]=="staff")
           this.router.navigateByUrl('staff-component')
         else if(res[2]=="student")
