@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace AcademicInfoServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles="teacher")]
+    [Authorize(Roles = "teacher")]
     public class TeacherController : ControllerBase
 
     {
@@ -43,7 +44,7 @@ namespace AcademicInfoServer.Controllers
 
             try
             {
-                using(SqlConnection conn=new SqlConnection(myConn))
+                using (SqlConnection conn = new SqlConnection(myConn))
                 {
                     conn.Open();
 
@@ -56,7 +57,7 @@ namespace AcademicInfoServer.Controllers
                     if (myReader.HasRows)
                         return new JsonResult("The optional is already in the db!");
 
-   
+
                     myReader.Close();
 
 
@@ -69,7 +70,7 @@ namespace AcademicInfoServer.Controllers
 
                         myReader.Read();
 
-                        int no_proposed=myReader.GetInt32(0);
+                        int no_proposed = myReader.GetInt32(0);
 
                         if (no_proposed > 1)
                             return new JsonResult("The teacher already proposed 2 optionals!");
@@ -99,7 +100,7 @@ namespace AcademicInfoServer.Controllers
 
             string query = "insert into ProposedOptionals values ( " + id + ",'" + cs.department + "'," + cs.year + "," + cs.semester + "," + cs.credits + ",'" + cs.CourseName + "')";
 
-            
+
             try
             {
                 using (SqlConnection myCon = new SqlConnection(myConn))
@@ -125,5 +126,135 @@ namespace AcademicInfoServer.Controllers
 
 
         }
+
+        [HttpGet("getByCourseID/{id}")]
+        public IActionResult getByCourseID(int id)
+        {
+            string q = "select studentID from StudentsCourses where courseID=" + id;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr = cmd.ExecuteReader();
+
+                        if (!dr.HasRows)
+                            return new JsonResult("The student is not enrolled in any course!");
+
+                        dt.Load(dr);
+
+                        dr.Close();
+
+                        List<int> ls = new List<int>();
+
+
+                        foreach (DataRow dr2 in dt.Rows)
+                        {
+                            int studId = Convert.ToInt32(dr2["studentID"]);
+                            ls.Add(studId);
+
+                        }
+
+                        string q3 = "select * from students where userID in (";
+
+                        for (int i = 0; i < ls.Count; i++)
+                        {
+                            q3 = q3 + ls[i] + ",";
+
+                        }
+
+                        StringBuilder sb = new StringBuilder(q3);
+
+                        sb[sb.Length - 1] = ')';
+
+                        q3 = sb.ToString();
+
+                        Console.WriteLine(q3);
+
+                        using (SqlCommand c = new SqlCommand(q3, conn))
+                        {
+                            dr = c.ExecuteReader();
+                            
+                            DataTable dt2 = new DataTable();
+
+                            dt2.Load(dr);
+
+                            return new JsonResult(dt2);
+
+                        }
+
+                    }
+
+
+
+
+
+
+
+                }
+
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+
+        }
+
+        [HttpPost("grade_Student")]
+        public IActionResult grade_Student(Grade g)
+        {
+            string q = "insert into Grades values (" + g.studentID + "," + g.courseID + "," + g.value + "," + g.weight +")";
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+
+
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return Ok("Student Graded!");
+        }
+
+
     }
+
+
+
 }
+    
