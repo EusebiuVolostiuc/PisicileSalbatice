@@ -1,0 +1,28 @@
+<mat-card >
+  <form fxLayout="column" style="width:400px;" [formGroup]="optionalForm" (ngSubmit)="proposeOptional()">
+    <mat-form-field appearance="fill">
+      <mat-label>Course name</mat-label>
+      <input matInput required [formControl]="$any(optionalForm).controls['name']">
+    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Year</mat-label>
+    <mat-select matInput required [formControl]="$any(optionalForm).controls['year']">
+      <mat-option value=1>1</mat-option>
+      <mat-option value=2>2</mat-option>
+      <mat-option value=3>3</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Semester</mat-label>
+    <mat-select matInput required [formControl]="$any(optionalForm).controls['semester']">
+      <mat-option value=1>1</mat-option>
+      <mat-option value=2>2</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Credits</mat-label>
+    <input matInput required type="number"  min="1" max="7" [formControl]="$any(optionalForm).controls['credits']">
+  </mat-form-field>
+  <button mat-raised-button type="submit">Propose optional</button>
+  </form>
+</mat-card>

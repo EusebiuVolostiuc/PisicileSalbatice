@@ -9,12 +9,16 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class TeacherProfileComponent implements OnInit {
   name: any;
+  propose: number;
+  hello: number;
 
   constructor(private router:Router,private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
+    this.hello=1;
+    this.propose=0;
     var token = localStorage.getItem('token');
 
     var tokenise = "Bearer " + token;
@@ -36,5 +40,10 @@ export class TeacherProfileComponent implements OnInit {
   logout() {
     this.router.navigateByUrl("");
     localStorage.setItem("token","");
+  }
+
+  loadOptionalForm() {
+    this.hello=0;
+    this.propose=1;
   }
 }

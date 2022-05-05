@@ -23,6 +23,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { CoursesTabComponent } from './student-profile/courses-tab/courses-tab.component';
 import { OptionalsTabComponent } from './student-profile/optionals-tab/optionals-tab.component';
+import { OptionalsFormComponent } from './teacher-profile/optionals-form/optionals-form.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 const routes: Routes = [
@@ -43,13 +45,14 @@ const routes: Routes = [
     StudentFormComponent,
     TeacherProfileComponent,
     CoursesTabComponent,
-    OptionalsTabComponent
+    OptionalsTabComponent,
+    OptionalsFormComponent
   ],
-  imports: [
-    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
-    MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule,MatTabsModule
-  ],
+    imports: [
+        RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
+        MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
+        MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule, MatTabsModule, MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
   exports: [RouterModule]
