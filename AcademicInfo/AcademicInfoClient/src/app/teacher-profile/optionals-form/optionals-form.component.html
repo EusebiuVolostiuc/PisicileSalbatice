@@ -26,3 +26,15 @@
   <button mat-raised-button type="submit">Propose optional</button>
   </form>
 </mat-card>
+
+<mat-card style="margin-top: 20px">
+  <mat-card-title>Proposed optionals:</mat-card-title>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let element of optionals"><b>Course</b>:{{element["CourseName"]}},
+    <b>department:</b>{{element["department"]}},
+    <b>year:</b>{{element["year"]}},
+    <b>semester:</b>{{element["semester"]}},
+    <b>credits:</b>{{element["credits"]}}
+  </mat-list-item>
+</mat-list>
+</mat-card>
