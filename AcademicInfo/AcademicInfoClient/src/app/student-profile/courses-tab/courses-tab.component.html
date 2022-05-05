@@ -10,7 +10,11 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        onclick="function sendCellData(data) {
+          console.log(data)
+        }
+        sendCellData(row)"></tr>
 </table>
 </div>
 

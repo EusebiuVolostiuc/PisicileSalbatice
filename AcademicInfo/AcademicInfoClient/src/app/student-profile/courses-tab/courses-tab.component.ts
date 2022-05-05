@@ -81,4 +81,10 @@ export class CoursesTabComponent implements OnInit {
       })
   }
 
+
+
 }
+
+// function sendCellData(data: any): void {
+//   console.log(data);
+// }
