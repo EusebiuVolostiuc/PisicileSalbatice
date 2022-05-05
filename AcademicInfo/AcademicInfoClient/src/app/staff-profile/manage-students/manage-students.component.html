@@ -1,8 +1,4 @@
-<div fxFlexFill fxLayoutAlign="center center" fxLayout="column">
-  <mat-card style="width: 58%; height: fit-content;">
-    <button mat-raised-button style="float:right" (click)="load_student_form()">Add student</button>
-  </mat-card>
-  <table mat-table [dataSource]="students" class="mat-elevation-z8">
+ <table mat-table [dataSource]="students" class="mat-elevation-z8">
 
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -33,4 +29,3 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-</div>

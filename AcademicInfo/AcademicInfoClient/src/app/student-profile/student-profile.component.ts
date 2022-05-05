@@ -67,7 +67,7 @@ export class StudentProfileComponent implements OnInit {
   }
 
   logout() {
-    //nuj ce mai trb
+    localStorage.setItem("token","");
     this.router.navigateByUrl("");
   }
 }
