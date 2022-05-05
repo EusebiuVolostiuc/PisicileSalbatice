@@ -286,58 +286,38 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-            List<int> ls=new List<int>();
-
-            foreach(DataRow dr in tbl.Rows)
-            {
-                ls.Add(Convert.ToInt32(dr["teacherID"]));
-            }
-
-            string q2 = "select Name from teachers where userID in (";
-
-            for(int i=0;i<ls.Count;i++)
-            {
-                q2+=ls[i];
-                q2 += ",";
-            }
-
-            StringBuilder sb=new StringBuilder(q2);
-
-            sb[sb.Length-1]=')';
-
-            q2=sb.ToString();
-
-            Console.WriteLine(q2);
+          
+           
 
             try
             {
                 using (SqlConnection myCon = new SqlConnection(con_string))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+                        
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach(DataRow dr in tbl.Rows)
                     {
-                        myReader = cmd.ExecuteReader();
+                        string q="select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
 
-                       DataTable dt2=new DataTable();
-
-                        dt2.Load(myReader);
-
-                        tbl.Columns.Add("TeacherName");
-
-                        int i = 0;
-                        foreach(DataRow dr in tbl.Rows)
+                        using(SqlCommand cmd = new SqlCommand(q, myCon))
                         {
-                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            myReader=cmd.ExecuteReader();
 
-                            if(i<dt2.Rows.Count-1)
-                                i++;
+                            myReader.Read();
+
+                            dr["TeacherName"]=myReader.GetString(0);
                         }
 
                         myReader.Close();
-                        myCon.Close();
                     }
+
+                    myReader.Close();
+                    myCon.Close();
+                  }
                 }
-            }
+      
 
             catch(Exception ex)
             { return new JsonResult(ex.Message);}
@@ -407,62 +387,38 @@ namespace AcademicInfoServer.Controllers
                 return BadRequest(ex.Message);
             }
 
-            List<int> ls = new List<int>();
-
-            foreach (DataRow dr in tbl.Rows)
-            {
-                ls.Add(Convert.ToInt32(dr["teacherID"]));
-            }
-
-            string q2 = "select Name from teachers where userID in (";
-
-            for (int i = 0; i < ls.Count; i++)
-            {
-                q2 += ls[i];
-                q2 += ",";
-            }
-
-            StringBuilder sb = new StringBuilder(q2);
-
-            sb[sb.Length - 1] = ')';
-
-            q2 = sb.ToString();
-
-            Console.WriteLine(q2);
-
             try
             {
                 using (SqlConnection myCon = new SqlConnection(con_string))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach (DataRow dr in tbl.Rows)
                     {
-                        myReader = cmd.ExecuteReader();
+                        string q = "select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
 
-                        DataTable dt2 = new DataTable();
-
-                        dt2.Load(myReader);
-
-                        tbl.Columns.Add("TeacherName");
-
-                        int i = 0;
-                        foreach (DataRow dr in tbl.Rows)
+                        using (SqlCommand cmd = new SqlCommand(q, myCon))
                         {
-                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            myReader = cmd.ExecuteReader();
 
-                            if (i < dt2.Rows.Count - 1)
-                                i++;
+                            myReader.Read();
+
+                            dr["TeacherName"] = myReader.GetString(0);
                         }
 
                         myReader.Close();
-                        myCon.Close();
                     }
+
+                    myReader.Close();
+                    myCon.Close();
                 }
             }
 
-            catch (Exception ex)
-            { return BadRequest(ex.Message); }
 
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
 
 
 
@@ -531,51 +487,36 @@ namespace AcademicInfoServer.Controllers
             }
 
 
-            string q2 = "select Name from teachers where userID in (";
-
-            for (int i = 0; i < ls.Count; i++)
-            {
-                q2 += ls[i];
-                q2 += ",";
-            }
-
-            StringBuilder sb = new StringBuilder(q2);
-
-            sb[sb.Length - 1] = ')';
-
-            q2 = sb.ToString();
-
-            Console.WriteLine(q2);
-
             try
             {
                 using (SqlConnection myCon = new SqlConnection(con_string))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach (DataRow dr in tbl.Rows)
                     {
-                        myReader = cmd.ExecuteReader();
+                        string q = "select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
 
-                        DataTable dt2 = new DataTable();
-
-                        dt2.Load(myReader);
-
-                        tbl.Columns.Add("TeacherName");
-
-                        int i = 0;
-                        foreach (DataRow dr in tbl.Rows)
+                        using (SqlCommand cmd = new SqlCommand(q, myCon))
                         {
-                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            myReader = cmd.ExecuteReader();
 
-                            if (i < dt2.Rows.Count - 1)
-                                i++;
+                            myReader.Read();
+
+                            dr["TeacherName"] = myReader.GetString(0);
                         }
 
                         myReader.Close();
-                        myCon.Close();
                     }
+
+                    myReader.Close();
+                    myCon.Close();
                 }
             }
+
+
 
             catch (Exception ex)
             { return BadRequest(ex.Message); }
@@ -583,7 +524,7 @@ namespace AcademicInfoServer.Controllers
 
 
 
-            return BadRequest(tbl);
+            return new JsonResult(tbl);
         }
 
 
