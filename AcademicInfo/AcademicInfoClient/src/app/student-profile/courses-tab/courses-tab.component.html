@@ -18,3 +18,28 @@
 </table>
 </div>
 
+<ng-template #modalGrades let-close="close">
+  <span *ngFor="let grade of displayGrades">
+    GRADE: {{grade.value}}  WEIGHT: {{grade.weight}}
+  </span>
+</ng-template>
+
+<!--<div fxFlexAlign="center center" style="margin-top: 50px">-->
+<!--  <table fxFlexFill mat-table [dataSource]="displayGrades" class="mat-elevation-z8 demo-table">-->
+<!--    <ng-container *ngFor="let column of gradeColumns" [matColumnDef]="column.columnDef"-->
+
+<!--    >-->
+<!--      <th mat-header-cell *matHeaderCellDef>-->
+<!--        {{column.header}}-->
+<!--      </th>-->
+<!--      <td mat-cell *matCellDef="let row"-->
+<!--          (click)="sendCellData(column.cell(row))">-->
+<!--        {{column.cell(row)}}-->
+<!--      </td>-->
+<!--    </ng-container>-->
+
+<!--    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--    <tr mat-row *matRowDef="let row; columns: displayedColumns;"-->
+<!--    ></tr>-->
+<!--  </table>-->
+<!--</div>-->

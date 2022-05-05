@@ -26,6 +26,7 @@ import { OptionalsTabComponent } from './student-profile/optionals-tab/optionals
 import { OptionalsFormComponent } from './teacher-profile/optionals-form/optionals-form.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
+import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 
 const routes: Routes = [
@@ -49,12 +50,17 @@ const routes: Routes = [
     OptionalsTabComponent,
     OptionalsFormComponent
   ],
-  imports: [
-    RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
-    MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule, MatTabsModule, MatSelectModule, MatListModule
+    imports: [
+        RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
+        MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
+        MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule, MatTabsModule, MatSelectModule, MatDialogModule, MatListModule
+    ],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
