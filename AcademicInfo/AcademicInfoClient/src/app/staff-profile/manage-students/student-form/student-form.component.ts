@@ -58,6 +58,13 @@ export class StudentFormComponent implements OnInit {
     )
       .subscribe(response => {
         console.log('post response ', response);
+        var res = Object.values(response);
+        if(res[0]=="User Authenticated Successfully!")
+          alert("Student added!")
+        else
+        {
+          alert("Invalid student")
+        }
       })
    // this.router.navigateByUrl('manage-students-component')
   }

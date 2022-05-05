@@ -37,7 +37,7 @@ export class OptionalsFormComponent implements OnInit {
       alert("invalid credits")
    }
     else {
-      
+
    }
 
   }
