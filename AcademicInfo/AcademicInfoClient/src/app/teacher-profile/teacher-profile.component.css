@@ -11,3 +11,13 @@ mat-card-title{
 margin-top: 10%;
 }
 
+.Component{
+  display:flex;
+  margin-left:20%;
+  height:100%;
+  width:80%;
+  align-content: center;
+  align-items:center;
+  justify-content: center;
+}
+
