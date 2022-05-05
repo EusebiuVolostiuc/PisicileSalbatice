@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Text;
 
 namespace AcademicInfoServer.Controllers
 {
@@ -140,7 +140,7 @@ namespace AcademicInfoServer.Controllers
                 using (SqlConnection myCon = new SqlConnection(sqlDataSource))
                 {
                     myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(@"select top 1 Name, department, year, groupp from Students where userID = " + userID + ";", myCon)
+                    using (SqlCommand cmd = new SqlCommand(@"select * from Students where userID = " + userID + ";", myCon)
                     {
 
                     })
@@ -203,7 +203,23 @@ namespace AcademicInfoServer.Controllers
                     {
                         myReader = cmd.ExecuteReader();
 
+                        if (myReader.HasRows == false)
+                            return new JsonResult("There are no courses for the current student!");
+
                         tbl.Load(myReader);
+
+                        tbl.Columns["courseType"].MaxLength = 500;
+
+                        foreach(DataRow dr in tbl.Rows)
+                        {
+                         
+                            if (dr["courseType"].Equals("m"))
+                                dr["courseType"] = "mandatory";
+                            else
+                                dr["courseType"] = "optional";
+
+                     
+                        }
 
                         myReader.Close();
                         myCon.Close();
@@ -216,17 +232,80 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
+            List<int> ls=new List<int>();
+
+            foreach(DataRow dr in tbl.Rows)
+            {
+                ls.Add(Convert.ToInt32(dr["teacherID"]));
+            }
+
+            string q2 = "select Name from teachers where userID in (";
+
+            for(int i=0;i<ls.Count;i++)
+            {
+                q2+=ls[i];
+                q2 += ",";
+            }
+
+            StringBuilder sb=new StringBuilder(q2);
+
+            sb[sb.Length-1]=')';
+
+            q2=sb.ToString();
+
+            Console.WriteLine(q2);
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                       DataTable dt2=new DataTable();
+
+                        dt2.Load(myReader);
+
+                        tbl.Columns.Add("TeacherName");
+
+                        int i = 0;
+                        foreach(DataRow dr in tbl.Rows)
+                        {
+                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            i++;
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch(Exception ex)
+            { return new JsonResult(ex.Message);}
+
+          
+            
+
             return new JsonResult(tbl);
         }
 
-
-
-        [HttpGet("get_Optionals")]
-
-        public IActionResult get_Optionals()
+        [HttpGet("getEnrolledOptionals")]
+        public IActionResult getEnrolledOptionals()
         {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
 
-            string query = "select * from courses where courseType='o'";
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string query = "select * from Courses where courseID in (select courseID from StudentsCourses where studentID =" + userID + ") and courseType='o'";
+
+
 
             SqlDataReader myReader;
 
@@ -243,7 +322,23 @@ namespace AcademicInfoServer.Controllers
                     {
                         myReader = cmd.ExecuteReader();
 
+                        if (myReader.HasRows == false)
+                            return new JsonResult("There are no courses for the current student!");
+
                         tbl.Load(myReader);
+
+                        tbl.Columns["courseType"].MaxLength = 500;
+
+                        foreach (DataRow dr in tbl.Rows)
+                        {
+
+                            if (dr["courseType"].Equals("m"))
+                                dr["courseType"] = "mandatory";
+                            else
+                                dr["courseType"] = "optional";
+
+
+                        }
 
                         myReader.Close();
                         myCon.Close();
@@ -255,6 +350,178 @@ namespace AcademicInfoServer.Controllers
             {
                 return new JsonResult(ex.Message);
             }
+
+            List<int> ls = new List<int>();
+
+            foreach (DataRow dr in tbl.Rows)
+            {
+                ls.Add(Convert.ToInt32(dr["teacherID"]));
+            }
+
+            string q2 = "select Name from teachers where userID in (";
+
+            for (int i = 0; i < ls.Count; i++)
+            {
+                q2 += ls[i];
+                q2 += ",";
+            }
+
+            StringBuilder sb = new StringBuilder(q2);
+
+            sb[sb.Length - 1] = ')';
+
+            q2 = sb.ToString();
+
+            Console.WriteLine(q2);
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        DataTable dt2 = new DataTable();
+
+                        dt2.Load(myReader);
+
+                        tbl.Columns.Add("TeacherName");
+
+                        int i = 0;
+                        foreach (DataRow dr in tbl.Rows)
+                        {
+                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            i++;
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+
+
+            return new JsonResult(tbl);
+
+        }
+
+
+
+
+        [HttpGet("get_Optionals")]
+
+        public IActionResult get_Optionals()
+        {
+
+            string query = "select * from courses where courseType='o'";
+
+            SqlDataReader myReader;
+
+            DataTable tbl = new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            List<int> ls = new List<int>();
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == false)
+                            return new JsonResult("There are no optionals in the DataBase!");
+
+                        tbl.Load(myReader);
+
+                        tbl.Columns["courseType"].MaxLength = 500;
+
+                        foreach(DataRow dr in tbl.Rows)
+                        {
+                         
+                            if (dr["courseType"].Equals("m"))
+                                dr["courseType"] = "mandatory";
+                            else
+                                dr["courseType"] = "optional";
+
+                            ls.Add(Convert.ToInt32(dr["teacherID"]));
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+            string q2 = "select Name from teachers where userID in (";
+
+            for (int i = 0; i < ls.Count; i++)
+            {
+                q2 += ls[i];
+                q2 += ",";
+            }
+
+            StringBuilder sb = new StringBuilder(q2);
+
+            sb[sb.Length - 1] = ')';
+
+            q2 = sb.ToString();
+
+            Console.WriteLine(q2);
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(q2, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        DataTable dt2 = new DataTable();
+
+                        dt2.Load(myReader);
+
+                        tbl.Columns.Add("TeacherName");
+
+                        int i = 0;
+                        foreach (DataRow dr in tbl.Rows)
+                        {
+                            dr["TeacherName"] = dt2.Rows[i]["Name"];
+                            i++;
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+
 
             return new JsonResult(tbl);
         }

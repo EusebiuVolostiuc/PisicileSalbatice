@@ -6,6 +6,6 @@
     "\\AcademicInfo\\AcademicInfoServer\\Controllers",
     "\\AcademicInfo\\AcademicInfoServer\\Models"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfo.sln",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfoServer\\Controllers\\StudentController.cs",
   "PreviewInSolutionExplorer": false
 }
