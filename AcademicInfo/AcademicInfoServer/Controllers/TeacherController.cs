@@ -93,6 +93,8 @@ namespace AcademicInfoServer.Controllers
 
             SqlDataReader myReader;
 
+            string department;
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(myConn))
@@ -135,11 +137,21 @@ namespace AcademicInfoServer.Controllers
                         SqlCommand cmd2 = new SqlCommand(q2, conn);
 
                         cmd2.ExecuteNonQuery();
-
-
                     }
 
-                    conn.Close();
+                    using (SqlCommand cmd = new SqlCommand("select department from Teachers where userId = " + userID, conn))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == false)
+                            return new JsonResult("Error!");
+
+                        myReader.Read();
+
+                        department = myReader.GetString(0);
+
+                        myReader.Close();
+                    }
                 }
             }
 
@@ -149,7 +161,7 @@ namespace AcademicInfoServer.Controllers
             }
 
 
-            string query = "insert into ProposedOptionals values ( " + id + ",'" + cs.department + "'," + cs.year + "," + cs.semester + "," + cs.credits + ",'" + cs.CourseName + "')";
+            string query = "insert into ProposedOptionals values ( " + id + ",'" + department + "'," + cs.year + "," + cs.semester + "," + cs.credits + ",'" + cs.CourseName + "')";
 
 
             try
