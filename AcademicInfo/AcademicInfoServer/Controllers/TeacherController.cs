@@ -127,6 +127,50 @@ namespace AcademicInfoServer.Controllers
 
         }
 
+        [HttpGet("getProposed")]
+        public IActionResult getProposed()
+        {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select * from ProposedOptionals where teacherID = " + userID;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr = cmd.ExecuteReader();
+                        dt.Load(dr);
+
+                        return new JsonResult(dt);
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+        }
+
         [HttpGet("getByCourseID/{id}")]
         public IActionResult getByCourseID(int id)
         {
@@ -197,12 +241,6 @@ namespace AcademicInfoServer.Controllers
                         }
 
                     }
-
-
-
-
-
-
 
                 }
 
