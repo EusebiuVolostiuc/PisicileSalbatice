@@ -1,0 +1,13 @@
+mat-card{
+  position:fixed;
+  height:100%;
+  width: 20%;
+}
+mat-card-title{
+  font-size: 15px;
+}
+
+.menu{
+margin-top: 10%;
+}
+

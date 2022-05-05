@@ -12,12 +12,17 @@ export class LoginFormComponent implements OnInit {
   iconImg:string = "src\\assets\\img\\img.png"
   public loginForm: FormGroup
 
+  public invalidLogin: number = 0
+
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username : new FormControl('', [Validators.required]),
-      password : new FormControl('', [Validators.required])
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ])
     })
   }
 
@@ -34,12 +39,18 @@ export class LoginFormComponent implements OnInit {
         var res =Object.values(response)
         console.log(res);
         localStorage.setItem('token', res[3]);
+        localStorage.setItem('account',res[1]);
+        this.invalidLogin = 0;
         if(res[2]=="staff")
           this.router.navigateByUrl('staff-component')
         else if(res[2]=="student")
           this.router.navigateByUrl('student-component')
         else if(res[2]=="teacher")
           this.router.navigateByUrl('teacher-component')
-      })
+      },
+        error => {
+          this.invalidLogin = 1;
+        })
+   
    }
 }
