@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import { concat } from 'rxjs';
@@ -16,11 +16,23 @@ export class StudentFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.studentForm = new FormGroup({
-      Name : new FormControl('', [Validators.required]),
-      Department : new FormControl('', [Validators.required]),
-      Year : new FormControl('', [Validators.required]),
-      Group : new FormControl('', [Validators.required])
-  })
+      Name: new FormControl('', [Validators.required, this.customValidator(/[^a-zA-Z]/i)]),
+      Department: new FormControl('', [Validators.required, this.customValidator(/[^ 0 - 9]/i)]),
+      Year: new FormControl('', [Validators.required, this.customValidator(/[^1 - 3]/i)]),
+      Group: new FormControl('', [Validators.required, this.customValidator(/(^9[1 - 3][1 - 7])/i)])
+    })
+  }
+  customYearValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      var rex = /^[0 - 9]/i;
+      return (rex.test(control.value) || control.value < 1 || control.value > 3) ? control.value : null;
+    }
+  }
+  customValidator(nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const forbidden = nameRe.test(control.value);
+    return forbidden ? { forbiddenName: { value: control.value } } : null;
+    };
 }
   addStudent() {
     const studentData = {
