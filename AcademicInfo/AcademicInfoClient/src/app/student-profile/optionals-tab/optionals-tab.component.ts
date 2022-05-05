@@ -8,7 +8,8 @@ interface Course {
   semester:number,
   credits:number,
   courseType:string,
-  teacher:string
+  TeacherName: string,
+  CourseName : string
 }
 
 @Component({
@@ -21,7 +22,7 @@ export class OptionalsTabComponent implements OnInit {
     {
       columnDef: 'name',
       header: 'Course',
-      cell: (element: Course) => "course name",
+      cell: (element: Course) => `${element.CourseName}`,
     },
     {
       columnDef: 'department',
@@ -51,7 +52,7 @@ export class OptionalsTabComponent implements OnInit {
     {
       columnDef: 'teacher',
       header: 'Teacher',
-      cell: (element: Course) => "teacher name",
+      cell: (element: Course) => `${element.TeacherName}`,
     },
   ];
 
@@ -71,7 +72,7 @@ export class OptionalsTabComponent implements OnInit {
     const httpOptions = {
       headers: headers
     }
-    this.http.get('https://localhost:4200/api/student/get_Optionals',httpOptions)
+    this.http.get('https://localhost:4200/api/student/getEnrolledOptionals',httpOptions)
       .subscribe(response => {
         var courses_ = Object.values(response)
         let postArr: any[];

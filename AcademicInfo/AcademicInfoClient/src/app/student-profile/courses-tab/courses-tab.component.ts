@@ -8,7 +8,8 @@ interface Course {
   semester:number,
   credits:number,
   courseType:string,
-  teacher:string
+  TeacherName: string,
+  CourseName: string
 }
 
 @Component({
@@ -19,9 +20,9 @@ interface Course {
 export class CoursesTabComponent implements OnInit {
   columns = [
     {
-      columnDef: 'name',
+      columnDef: 'CourseName',
       header: 'Course',
-      cell: (element: Course) => "course name",
+      cell: (element: Course) => `${element.CourseName}`,
     },
     {
       columnDef: 'department',
@@ -49,9 +50,9 @@ export class CoursesTabComponent implements OnInit {
       cell: (element: Course) => `${element.courseType}`,
     },
     {
-      columnDef: 'teacher',
+      columnDef: 'TeacherName',
       header: 'Teacher',
-      cell: (element: Course) => "teacher name",
+      cell: (element: Course) => `${element.TeacherName}`,
     },
   ];
 
@@ -72,7 +73,10 @@ export class CoursesTabComponent implements OnInit {
     }
     this.http.get('https://localhost:4200/api/student/get_Courses',httpOptions)
       .subscribe(response => {
-        var courses_ = Object.values(response)
+
+        
+        var courses_ = Object.values(response) 
+
         let postArr: any[];
         postArr = [];
         courses_.forEach(element => postArr.push(element));
