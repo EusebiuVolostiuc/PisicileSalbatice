@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {MatDialog} from "@angular/material/dialog";
 
 interface Course {
+  courseID: number,
   name:string
   department:string,
   year:number,
@@ -12,12 +14,21 @@ interface Course {
   CourseName: string
 }
 
+interface Grade {
+  studentID: number,
+  courseID: number,
+  value: number,
+  weight: number,
+}
+
 @Component({
   selector: 'app-courses-tab',
   templateUrl: './courses-tab.component.html',
   styleUrls: ['./courses-tab.component.css']
 })
 export class CoursesTabComponent implements OnInit {
+  @ViewChild('modalGrades', { static: true }) modalGrades: TemplateRef<any>;
+
   columns = [
     {
       columnDef: 'CourseName',
@@ -56,9 +67,25 @@ export class CoursesTabComponent implements OnInit {
     },
   ];
 
+  gradeColumns = [
+    {
+      columnDef: 'value',
+      header: 'Value',
+      cell: (element: Grade) => `${element.value}`,
+    },
+    {
+      columnDef: 'weight',
+      header: 'Weight',
+      cell: (element: Grade) => `${element.weight}`,
+    }
+  ];
+
   displayedColumns = this.columns.map(c => c.columnDef);
   courses: Course[]
-  constructor(private http: HttpClient) { }
+  grades: Grade[]
+  displayGrades: Grade[]
+  constructor(private http: HttpClient,
+              private dialogBox: MatDialog) { }
 
   ngOnInit(): void {
     var token = localStorage.getItem('token');
@@ -74,8 +101,8 @@ export class CoursesTabComponent implements OnInit {
     this.http.get('https://localhost:4200/api/student/get_Courses',httpOptions)
       .subscribe(response => {
 
-        
-        var courses_ = Object.values(response) 
+
+        var courses_ = Object.values(response)
 
         let postArr: any[];
         postArr = [];
@@ -83,10 +110,29 @@ export class CoursesTabComponent implements OnInit {
         this.courses=postArr;
         console.log(this.courses);
       })
+
+    this.http.get('https://localhost:4200/api/student/get_Grades',httpOptions)
+      .subscribe(response => {
+
+
+        var grades_ = Object.values(response)
+
+        let postArr: any[];
+        postArr = [];
+        grades_.forEach(element => postArr.push(element));
+        this.grades=postArr;
+        console.log(this.grades);
+      })
   }
   sendCellData(data: any): void {
-  console.log(data);
-}
+    // @ts-ignore
+    const courseId = this.courses.find(course => {return course.CourseName === data}) === undefined ? -1 : this.courses.find(course => {return course.CourseName === data}).courseID
+    const grades = this.grades.filter(grade => {return grade.courseID === courseId});
+    this.displayGrades = grades;
+    if (grades.length > 0) {
+      this.dialogBox.open(this.modalGrades);
+    }
+  }
 
 }
 
