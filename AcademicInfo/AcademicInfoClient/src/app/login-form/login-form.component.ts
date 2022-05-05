@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   public loginForm: FormGroup
 
   public invalidLogin: number = 0
+  public closedServer: number = 0
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -36,21 +37,26 @@ export class LoginFormComponent implements OnInit {
 
     this.http.post('https://localhost:4200/api/authenticate', loginData)
       .subscribe(response => {
-        var res =Object.values(response)
+        var res = Object.values(response)
         console.log(res);
         localStorage.setItem('token', res[3]);
-        localStorage.setItem('account',res[1]);
+        localStorage.setItem('account', res[1]);
         this.invalidLogin = 0;
-        if(res[2]=="staff")
+        this.closedServer = 0;
+        if (res[2] == "staff")
           this.router.navigateByUrl('staff-component')
-        else if(res[2]=="student")
+        else if (res[2] == "student")
           this.router.navigateByUrl('student-component')
-        else if(res[2]=="teacher")
+        else if (res[2] == "teacher")
           this.router.navigateByUrl('teacher-component')
       },
         error => {
-          this.invalidLogin = 1;
-        })
-   
+          if (error.status == 401) {
+            this.invalidLogin = 1;
+            this.closedServer = 0;
+          }
+          if (error.status == 504)
+            this.closedServer = 1;
+        });
    }
 }

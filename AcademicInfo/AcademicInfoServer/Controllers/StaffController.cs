@@ -221,15 +221,10 @@ namespace AcademicInfoServer.Controllers
 
                 }
             }
-
             catch (Exception ex)
             {
                 return new JsonResult(ex.Message);
             }
-
-
-
-
 
             //return new JsonResult("Added succesfully!\n");
             return Ok(newUser);

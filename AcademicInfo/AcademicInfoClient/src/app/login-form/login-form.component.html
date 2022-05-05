@@ -23,6 +23,7 @@
           [formGroup]="loginForm" (ngSubmit)="authenticateUser()">
       <mat-toolbar color="transparent">AcademicInfo</mat-toolbar>
       <div *ngIf="invalidLogin == 1" style="text-align:center; color: red">Invalid Username or Password</div>
+      <div *ngIf="closedServer == 1" style="text-align:center; color: red">Cannot reach server</div>
       <mat-form-field>
         <input matInput placeholder="username" [formControl]="$any(loginForm).controls['username']">
       </mat-form-field>
