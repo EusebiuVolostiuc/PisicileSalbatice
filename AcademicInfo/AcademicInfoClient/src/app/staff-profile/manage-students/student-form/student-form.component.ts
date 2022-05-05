@@ -36,7 +36,7 @@ export class StudentFormComponent implements OnInit {
 }
   addStudent() {
     const studentData = {
-   
+
       department : this.studentForm.value.Department,
       name : this.studentForm.value.Name,
       year : this.studentForm.value.Year,
@@ -59,7 +59,7 @@ export class StudentFormComponent implements OnInit {
       .subscribe(response => {
         console.log('post response ', response);
       })
-    this.router.navigateByUrl('manage-students-component')
+   // this.router.navigateByUrl('manage-students-component')
   }
 
 

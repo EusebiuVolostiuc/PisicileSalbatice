@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-staff-profile',
@@ -8,16 +9,53 @@ import { Router } from '@angular/router';
 })
 export class StaffProfileComponent implements OnInit {
 
-  showFiller = false;
-  constructor(private router: Router) { 
+  name: any;
+  hello: number;
+  manage: number;
+  form: number;
+  constructor(private router:Router,private http: HttpClient) {
 
   }
 
   ngOnInit(): void {
+    this.hello=1;
+    this.manage=0;
+    this.form=0;
+    var token = localStorage.getItem('token');
+
+    var tokenise = "Bearer " + token;
+
+
+    var headers = new HttpHeaders().set("Authorization", tokenise);
+
+    const httpOptions = {
+      headers: headers
+    };
+
+    this.http.get('https://localhost:4200/api/staff/get_Staff',httpOptions)
+      .subscribe(response => {
+        var staff = Object.values(response)[0];
+        console.log(staff);
+        this.name= staff["Name"];
+      })
+    this.name="name"
   }
 
   load_manage_students(){
-    this.router.navigateByUrl('manage-students-component');
+    this.hello=0;
+    this.form=0;
+    this.manage=1;
+    //this.router.navigateByUrl('manage-students-component');
   }
 
+  logout() {
+    this.router.navigateByUrl("");
+    localStorage.setItem("token","");
+  }
+
+  load_student_form() {
+    this.hello=0;
+    this.manage=0;
+      this.form=1
+  }
 }

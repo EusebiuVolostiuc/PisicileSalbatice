@@ -253,21 +253,12 @@ namespace AcademicInfoServer.Controllers
             return Ok("Student Graded!");
         }
 
-        [HttpGet("get_Teacher")]
-        public IActionResult get_Teacher()
-        {
-
-            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
-
-            if (userID == null)
-            {
-                return BadRequest("Invalid Token");
-            }
-
-            int id = Convert.ToInt32(userID);
+        [HttpGet("get_Courses")]
+        public IActionResult get_Courses()
+        { 
 
 
-            string q = "select * from teachers where userID="+id;
+            string q = "select * from courses";
 
             DataTable dt = new DataTable();
 
@@ -286,7 +277,7 @@ namespace AcademicInfoServer.Controllers
 
                     using (SqlCommand cmd = new SqlCommand(q, conn))
                     {
-                        dr= cmd.ExecuteReader();
+                        dr = cmd.ExecuteReader();
                         dt.Load(dr);
 
                         return new JsonResult(dt);
@@ -298,10 +289,10 @@ namespace AcademicInfoServer.Controllers
             catch (Exception ex)
             { return new JsonResult(ex.Message); }
 
-            return Ok("Student Graded!");
-        
 
-    }
+
+        }
+
 
 
 }

@@ -21,7 +21,61 @@ namespace AcademicInfoServer.Controllers
             _configuration = configuration;
         }
 
-        
+        [HttpGet("get_Grades")]
+
+        public IActionResult get_Grades()
+        {
+
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+            string query = @"select * from grades where studentID=" +id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
+            return new JsonResult(tbl);
+
+        }
+
+
 
         [HttpPut]
         public IActionResult Put(Student s)
@@ -204,7 +258,7 @@ namespace AcademicInfoServer.Controllers
                         myReader = cmd.ExecuteReader();
 
                         if (myReader.HasRows == false)
-                            return new JsonResult("There are no courses for the current student!");
+                            return BadRequest("There are no courses for the current student!");
 
                         tbl.Load(myReader);
 
@@ -274,7 +328,9 @@ namespace AcademicInfoServer.Controllers
                         foreach(DataRow dr in tbl.Rows)
                         {
                             dr["TeacherName"] = dt2.Rows[i]["Name"];
-                            i++;
+
+                            if(i<dt2.Rows.Count-1)
+                                i++;
                         }
 
                         myReader.Close();
@@ -323,7 +379,7 @@ namespace AcademicInfoServer.Controllers
                         myReader = cmd.ExecuteReader();
 
                         if (myReader.HasRows == false)
-                            return new JsonResult("There are no courses for the current student!");
+                            return BadRequest("There are no courses for the current student!");
 
                         tbl.Load(myReader);
 
@@ -348,7 +404,7 @@ namespace AcademicInfoServer.Controllers
 
             catch (Exception ex)
             {
-                return new JsonResult(ex.Message);
+                return BadRequest(ex.Message);
             }
 
             List<int> ls = new List<int>();
@@ -393,7 +449,9 @@ namespace AcademicInfoServer.Controllers
                         foreach (DataRow dr in tbl.Rows)
                         {
                             dr["TeacherName"] = dt2.Rows[i]["Name"];
-                            i++;
+
+                            if (i < dt2.Rows.Count - 1)
+                                i++;
                         }
 
                         myReader.Close();
@@ -403,7 +461,7 @@ namespace AcademicInfoServer.Controllers
             }
 
             catch (Exception ex)
-            { return new JsonResult(ex.Message); }
+            { return BadRequest(ex.Message); }
 
 
 
@@ -440,7 +498,7 @@ namespace AcademicInfoServer.Controllers
                         myReader = cmd.ExecuteReader();
 
                         if (myReader.HasRows == false)
-                            return new JsonResult("There are no optionals in the DataBase!");
+                            return BadRequest("There are no optionals in the DataBase!");
 
                         tbl.Load(myReader);
 
@@ -469,7 +527,7 @@ namespace AcademicInfoServer.Controllers
 
             catch (Exception ex)
             {
-                return new JsonResult(ex.Message);
+                return BadRequest(ex.Message);
             }
 
 
@@ -508,7 +566,9 @@ namespace AcademicInfoServer.Controllers
                         foreach (DataRow dr in tbl.Rows)
                         {
                             dr["TeacherName"] = dt2.Rows[i]["Name"];
-                            i++;
+
+                            if (i < dt2.Rows.Count - 1)
+                                i++;
                         }
 
                         myReader.Close();
@@ -518,12 +578,12 @@ namespace AcademicInfoServer.Controllers
             }
 
             catch (Exception ex)
-            { return new JsonResult(ex.Message); }
+            { return BadRequest(ex.Message); }
 
 
 
 
-            return new JsonResult(tbl);
+            return BadRequest(tbl);
         }
 
 
