@@ -1,8 +1,7 @@
-<div fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex="25" fxLayout="row">
+<mat-card fxLayout="row" >
         <form style="margin-left: 5%;" class="example-form" fxLayoutAlign="stretch" fxLayout="column" fxFlexFill
         [formGroup]="studentForm" (ngSubmit)="addStudent()">
-        
+
             <mat-form-field>
               <input matInput placeholder="Name" [formControl]="$any(studentForm).controls['Name']">
             </mat-form-field>
@@ -17,5 +16,5 @@
               </mat-form-field>
             <button mat-raised-button type="submit">Add student</button>
           </form>
-    </mat-card>
-    </div>
+</mat-card>
+

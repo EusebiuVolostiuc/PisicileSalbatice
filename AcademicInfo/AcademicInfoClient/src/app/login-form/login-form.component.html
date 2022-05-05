@@ -20,15 +20,17 @@
         <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
       </svg>
     <form style="margin-left: 5%;" class="example-form" fxLayoutAlign="stretch" fxLayout="column"
-          [formGroup]="loginForm"  (ngSubmit)="authenticateUser()">
-        <mat-toolbar color="transparent">AcademicInfo</mat-toolbar>
-        <mat-form-field>
-          <input matInput placeholder="username" [formControl]="$any(loginForm).controls['username']">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput type="password" placeholder="password" [formControl]="$any(loginForm).controls['password']">
-          </mat-form-field>
-        <button mat-raised-button type="submit">Login</button>
-      </form>
+          [formGroup]="loginForm" (ngSubmit)="authenticateUser()">
+      <mat-toolbar color="transparent">AcademicInfo</mat-toolbar>
+      <div *ngIf="invalidLogin == 1" style="text-align:center; color: red">Invalid Username or Password</div>
+      <mat-form-field>
+        <input matInput placeholder="username" [formControl]="$any(loginForm).controls['username']">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="password" [formControl]="$any(loginForm).controls['password']">
+      </mat-form-field>
+      <div *ngIf="$any(loginForm).controls['password'].errors?.['minlength']" style="transition: 2s; color: red; font-size: 10px; margin-top: -15px;">Password must be at least 4 characters long.</div>
+      <button mat-raised-button type="submit">Login</button>
+    </form>
 </mat-card>
 </div>

@@ -7,7 +7,7 @@
   "request": "launch",
   "name": "localhost (Edge)",
   "url": "https://localhost:4200",
-  "webRoot": "D:\\University\\Code\\ISS_Test\\AcademicInfo\\AcademicInfoClient"
+  "webRoot": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoClient"
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
