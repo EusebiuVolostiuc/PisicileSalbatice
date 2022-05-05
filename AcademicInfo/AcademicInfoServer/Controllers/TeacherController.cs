@@ -21,6 +21,58 @@ namespace AcademicInfoServer.Controllers
             _configuration = config;
         }
 
+        [HttpGet("get_Courses")]
+        public IActionResult get_Courses()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+
+            string q = "select * from Courses where teacherID=" + id;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr = cmd.ExecuteReader();
+                        dt.Load(dr);
+
+                        return new JsonResult(dt);
+
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+         
+
+
+        }
+
+
+
         [HttpGet("get_Teacher")]
         public IActionResult get_Teacher()
         {
@@ -354,46 +406,7 @@ namespace AcademicInfoServer.Controllers
             return Ok("Student Graded!");
         }
 
-        [HttpGet("get_Courses")]
-        public IActionResult get_Courses()
-        { 
-
-
-            string q = "select * from courses";
-
-            DataTable dt = new DataTable();
-
-            SqlDataReader dr;
-
-            Console.WriteLine(q);
-
-
-            string myConn = _configuration.GetConnectionString("AcademicInfo");
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(myConn))
-                {
-                    conn.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(q, conn))
-                    {
-                        dr = cmd.ExecuteReader();
-                        dt.Load(dr);
-
-                        return new JsonResult(dt);
-
-                    }
-                }
-            }
-
-            catch (Exception ex)
-            { return new JsonResult(ex.Message); }
-
-
-
-        }
-
+       
 
 
 }
