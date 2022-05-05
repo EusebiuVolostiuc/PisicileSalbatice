@@ -21,6 +21,9 @@ namespace AcademicInfoServer.Controllers
             _configuration = configuration;
         }
 
+        [HttpGet("get_Grades")]
+
+
         
 
         [HttpPut]
