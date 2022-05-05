@@ -23,8 +23,59 @@ namespace AcademicInfoServer.Controllers
 
         [HttpGet("get_Grades")]
 
+        public IActionResult get_Grades()
+        {
 
-        
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+            string query = @"select * from grades where studentID=" +id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
+            return new JsonResult(tbl);
+
+        }
+
+
 
         [HttpPut]
         public IActionResult Put(Student s)
