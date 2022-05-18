@@ -16,9 +16,45 @@ namespace AcademicInfoServer.Controllers
     {
 
         private IConfiguration _configuration;
-        public TeacherController(IConfiguration config)
+        private readonly IWebHostEnvironment _env;
+        public TeacherController(IConfiguration config,IWebHostEnvironment env)
         {
             _configuration = config;
+            _env = env;
+        }
+
+        [HttpPut("upload_Photo")]
+        public IActionResult upload_Photo()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            try
+            {
+                var req = Request.Form;
+                var file = req.Files[0];
+                String[] extension = file.FileName.Split('.');
+                String filename = userID + "." + extension[extension.Length - 1];
+                var physicalPath = _env.ContentRootPath + "/Photos/Teachers/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                return new JsonResult("File succesfully uploaded!");
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
         }
 
         [HttpPut]

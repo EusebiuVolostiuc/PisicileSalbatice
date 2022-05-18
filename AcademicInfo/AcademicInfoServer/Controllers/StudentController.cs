@@ -15,10 +15,46 @@ namespace AcademicInfoServer.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _env;
 
-        public StudentController(IConfiguration configuration)
+        public StudentController(IConfiguration configuration,IWebHostEnvironment env)
         {
             _configuration = configuration;
+            _env = env;
+        }
+
+        [HttpPut("upload_Photo")]
+        public IActionResult upload_Photo()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            try
+            {
+                var req = Request.Form;
+                var file=req.Files[0];
+                String [] extension = file.FileName.Split('.');
+                String filename = userID+"."+extension[extension.Length-1];
+                var physicalPath = _env.ContentRootPath + "/Photos/Students/" + filename;
+
+                using (var stream=new FileStream(physicalPath,FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                return new JsonResult("File succesfully uploaded!");
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
         }
 
         [HttpGet("get_Grades")]
