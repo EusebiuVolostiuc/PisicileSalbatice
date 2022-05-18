@@ -15,6 +15,9 @@ export class StudentProfileComponent implements OnInit {
   department: String;
   year: String;
   group: String;
+  hello: number;
+  coursesTab: number;
+  optionalTab: number;
 
 
   constructor(private http: HttpClient,private router:Router) { }
@@ -49,7 +52,9 @@ export class StudentProfileComponent implements OnInit {
       group: new FormControl('', [Validators.required])
     })
     */
-
+    this.hello=1;
+    this.coursesTab=0;
+    this.optionalTab=0;
   }
 
   addStudent() {
@@ -69,5 +74,17 @@ export class StudentProfileComponent implements OnInit {
   logout() {
     localStorage.setItem("token","");
     this.router.navigateByUrl("");
+  }
+
+  loadCoursesTab() {
+    this.hello=0;
+    this.optionalTab=0;
+    this.coursesTab=1;
+  }
+
+  loadOptionalsTab() {
+    this.hello=0;
+    this.coursesTab=0;
+    this.optionalTab=1;
   }
 }
