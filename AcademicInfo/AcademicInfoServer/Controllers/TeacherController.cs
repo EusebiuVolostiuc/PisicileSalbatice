@@ -577,7 +577,7 @@ namespace AcademicInfoServer.Controllers
             catch (Exception ex)
             { return new JsonResult(ex.Message); }
 
-            return Ok("Student Graded!");
+            return new JsonResult("Student Graded!");
         }
 
        

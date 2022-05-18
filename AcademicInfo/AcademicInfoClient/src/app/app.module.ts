@@ -30,6 +30,7 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { UpdateProfileComponent } from './student-profile/update-profile/update-profile.component';
 import { UpdateTeacherComponent } from './teacher-profile/update-teacher/update-teacher.component';
 import { UpdateStaffComponent } from './staff-profile/update-staff/update-staff.component';
+import { GradeStudentComponent } from './teacher-profile/grade-student/grade-student.component';
 
 
 
@@ -55,7 +56,8 @@ const routes: Routes = [
     OptionalsFormComponent,
     UpdateProfileComponent,
     UpdateTeacherComponent,
-    UpdateStaffComponent
+    UpdateStaffComponent,
+    GradeStudentComponent
   ],
     imports: [
         RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
