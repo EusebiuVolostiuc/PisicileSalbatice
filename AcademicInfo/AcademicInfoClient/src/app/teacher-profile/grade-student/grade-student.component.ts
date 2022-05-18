@@ -120,6 +120,8 @@ export class GradeStudentComponent implements OnInit {
       console.log(response);
       if(response=="Student Graded!")
         this.courseSelected=-1;
+      this.gradeForm.controls['grade'].setValue("")
+      weight:this.gradeForm.controls['weight'].setValue("")
     })
 
   }
