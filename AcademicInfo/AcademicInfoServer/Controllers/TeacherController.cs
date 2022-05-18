@@ -104,7 +104,40 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-            
+
+            string delete_courses = @"delete from Courses where teacherID=" + id;
+            string delete_courses2 = @"delete from StudentsCourses where courseID in ( select courseID from Courses where teacherID=" + id +")";
+            string delete_courses3 = @"delete from StudentsOptionals where courseID in ( select courseID from Courses where teacherID=" + id + ")";
+
+            Console.WriteLine(delete_courses);
+            Console.WriteLine(delete_courses2);
+            Console.WriteLine(delete_courses3);
+
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                   SqlCommand c1=new SqlCommand(delete_courses, myCon);
+                    SqlCommand c2=new SqlCommand(delete_courses2, myCon);
+                    SqlCommand c3=new SqlCommand(delete_courses3, myCon);
+
+                    c1.ExecuteNonQuery();
+                    c2.ExecuteNonQuery();
+                    c3.ExecuteNonQuery();
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+
 
             return new JsonResult("Updated succesfully!");
 
