@@ -485,7 +485,7 @@ namespace AcademicInfoServer.Controllers
                         dr = cmd.ExecuteReader();
 
                         if (!dr.HasRows)
-                            return new JsonResult("The student is not enrolled in any course!");
+                            return BadRequest("The student is not enrolled in any course!");
 
                         dt.Load(dr);
 
