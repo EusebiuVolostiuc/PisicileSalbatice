@@ -457,11 +457,19 @@ namespace AcademicInfoServer.Controllers
 
 
         [HttpPut]
-        public JsonResult Put(Staff s)
+        public IActionResult Put(Staff s)
         {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
 
 
-            string query = @"update Staff set Name='" + s.name + "'" + " where userID=" + s.userId;
+            string query = @"update Staff set Name='" + s.name + "'" + " where userID=" + id;
 
 
             Console.Write(query);
