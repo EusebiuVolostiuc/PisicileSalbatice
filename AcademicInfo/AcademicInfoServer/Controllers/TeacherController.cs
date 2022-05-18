@@ -21,6 +21,59 @@ namespace AcademicInfoServer.Controllers
             _configuration = config;
         }
 
+        [HttpPut]
+        public IActionResult Put(Teacher s)
+        {
+
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+            string query = @"update Teachers set Name='" + s.Name + "',department='" + s.department + "'," + "type='" + s.type + "' where userID="+ id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            
+
+            return new JsonResult("Updated succesfully!");
+
+        }
+
         [HttpGet("get_Grades")]
 
         public IActionResult get_Grades()

@@ -29,6 +29,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 
+
 const routes: Routes = [
   {path:'', component:LoginFormComponent},
   { path: 'staff-component', component: StaffProfileComponent },
@@ -48,7 +49,8 @@ const routes: Routes = [
     TeacherProfileComponent,
     CoursesTabComponent,
     OptionalsTabComponent,
-    OptionalsFormComponent
+    OptionalsFormComponent,
+ 
   ],
     imports: [
         RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
