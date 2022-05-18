@@ -27,11 +27,9 @@ export class StudentProfileComponent implements OnInit {
   optionalTab: number;
   updatePfinfo:number;
   student:Student;
-  ready: number;
 
 
   constructor(private http: HttpClient,private router:Router) {
-    this.ready=0;
   }
 
   ngOnInit(): void {
@@ -56,14 +54,6 @@ export class StudentProfileComponent implements OnInit {
         this.group=student["groupp"];
       })
 
-    /*  this.addStudentForm = new FormGroup({
-      userId : new FormControl('', [Validators.required]),
-      department : new FormControl('', [Validators.required]),
-      name : new FormControl('', [Validators.required]),
-      year : new FormControl('', [Validators.required]),
-      group: new FormControl('', [Validators.required])
-    })
-    */
     this.hello=1;
     this.coursesTab=0;
     this.optionalTab=0;
@@ -74,7 +64,6 @@ export class StudentProfileComponent implements OnInit {
       "year":this.year,
       "group":this.group
     }
-    this.ready=1;
   }
 
   addStudent() {

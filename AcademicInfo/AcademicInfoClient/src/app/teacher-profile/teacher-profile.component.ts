@@ -9,8 +9,10 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class TeacherProfileComponent implements OnInit {
   name: any;
+  department:any;
   propose: number;
   hello: number;
+  updatePfinfo: number;
 
   constructor(private router:Router,private http: HttpClient) {
 
@@ -19,6 +21,7 @@ export class TeacherProfileComponent implements OnInit {
   ngOnInit(): void {
     this.hello=1;
     this.propose=0;
+    this.updatePfinfo=0;
     var token = localStorage.getItem('token');
 
     var tokenise = "Bearer " + token;
@@ -34,6 +37,7 @@ export class TeacherProfileComponent implements OnInit {
         var teacher = Object.values(response)[0];
         console.log(teacher);
         this.name=teacher["Name"]
+        this.department=teacher["department"]
       })
   }
 
@@ -44,6 +48,13 @@ export class TeacherProfileComponent implements OnInit {
 
   loadOptionalForm() {
     this.hello=0;
+    this.updatePfinfo=0;
     this.propose=1;
+  }
+
+  updateProfileInfo() {
+    this.hello=0;
+    this.propose=0;
+    this.updatePfinfo=1;
   }
 }

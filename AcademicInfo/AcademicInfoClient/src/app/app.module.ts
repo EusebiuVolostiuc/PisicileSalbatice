@@ -28,6 +28,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { UpdateProfileComponent } from './student-profile/update-profile/update-profile.component';
+import { UpdateTeacherComponent } from './teacher-profile/update-teacher/update-teacher.component';
 
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
     CoursesTabComponent,
     OptionalsTabComponent,
     OptionalsFormComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    UpdateTeacherComponent
   ],
     imports: [
         RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,

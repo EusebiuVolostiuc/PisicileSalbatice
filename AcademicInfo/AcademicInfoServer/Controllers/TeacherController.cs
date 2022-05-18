@@ -71,7 +71,7 @@ namespace AcademicInfoServer.Controllers
 
             int id = Convert.ToInt32(userID);
 
-            string query = @"update Teachers set Name='" + s.Name + "',department='" + s.department + "'," + "type='" + s.type + "' where userID="+ id;
+            string query = @"update Teachers set Name='" + s.Name + "',department='" + s.department + "' where userID="+ id;
 
 
             Console.Write(query);
