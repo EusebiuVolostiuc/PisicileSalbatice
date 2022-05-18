@@ -16,9 +16,98 @@ namespace AcademicInfoServer.Controllers
     {
 
         private IConfiguration _configuration;
-        public TeacherController(IConfiguration config)
+        private readonly IWebHostEnvironment _env;
+        public TeacherController(IConfiguration config,IWebHostEnvironment env)
         {
             _configuration = config;
+            _env = env;
+        }
+
+        [HttpPut("upload_Photo")]
+        public IActionResult upload_Photo()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            try
+            {
+                var req = Request.Form;
+                var file = req.Files[0];
+                String[] extension = file.FileName.Split('.');
+                String filename = userID + "." + extension[extension.Length - 1];
+                var physicalPath = _env.ContentRootPath + "/Photos/Teachers/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                return new JsonResult("File succesfully uploaded!");
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put(Teacher s)
+        {
+
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+            string query = @"update Teachers set Name='" + s.Name + "',department='" + s.department + "'," + "type='" + s.type + "' where userID="+ id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            
+
+            return new JsonResult("Updated succesfully!");
+
         }
 
         [HttpGet("get_Grades")]

@@ -8,6 +8,7 @@ using System.Text;
 using Newtonsoft.Json.Serialization;
 
 using Microsoft.IdentityModel.Logging;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,6 +78,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Photos")),
+    RequestPath = "/Photos"
+});
 
 app.Run();

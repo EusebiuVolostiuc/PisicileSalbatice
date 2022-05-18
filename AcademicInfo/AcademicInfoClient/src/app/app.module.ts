@@ -30,6 +30,7 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import { UpdateProfileComponent } from './student-profile/update-profile/update-profile.component';
 
 
+
 const routes: Routes = [
   {path:'', component:LoginFormComponent},
   { path: 'staff-component', component: StaffProfileComponent },
