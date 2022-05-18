@@ -3,12 +3,19 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {parseJson} from "@angular/cli/utilities/json-file";
-
+export interface Student{
+  name: String;
+  department: String;
+  year:String;
+  group:String;
+}
 @Component({
   selector: 'app-student-profile',
   templateUrl: './student-profile.component.html',
   styleUrls: ['./student-profile.component.css']
 })
+
+
 export class StudentProfileComponent implements OnInit {
   public addStudentForm: FormGroup
   name: String;
@@ -18,9 +25,14 @@ export class StudentProfileComponent implements OnInit {
   hello: number;
   coursesTab: number;
   optionalTab: number;
+  updatePfinfo:number;
+  student:Student;
+  ready: number;
 
 
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router) {
+    this.ready=0;
+  }
 
   ngOnInit(): void {
     var token = localStorage.getItem('token');
@@ -55,6 +67,14 @@ export class StudentProfileComponent implements OnInit {
     this.hello=1;
     this.coursesTab=0;
     this.optionalTab=0;
+    this.updatePfinfo=0;
+    this.student={
+      "name":this.name,
+      "department":this.department,
+      "year":this.year,
+      "group":this.group
+    }
+    this.ready=1;
   }
 
   addStudent() {
@@ -79,12 +99,21 @@ export class StudentProfileComponent implements OnInit {
   loadCoursesTab() {
     this.hello=0;
     this.optionalTab=0;
+    this.updatePfinfo=0;
     this.coursesTab=1;
   }
 
   loadOptionalsTab() {
     this.hello=0;
     this.coursesTab=0;
+    this.updatePfinfo=0;
     this.optionalTab=1;
+  }
+
+  updateProfileInfo() {
+    this.hello=0;
+    this.coursesTab=0;
+    this.optionalTab=0;
+    this.updatePfinfo=1;
   }
 }
