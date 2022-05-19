@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4f29f2c1-9e7e-4602-adb7-8593d102a8f4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/.vs/AcademicInfoServer/v17/.futdcache.v1" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/.vs/AcademicInfoServer/v17/.futdcache.v1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/.vs/AcademicInfoServer/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/.vs/AcademicInfoServer/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/AcademicInfoServer.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AcademicInfo/AcademicInfoServer/obj/Debug/net6.0/apphost.exe" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29D2XQ4FFXOkpcF8fxV670zh4sC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Lucian Vrabiescu/Faculta/ISS/newnewnew",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f29f2c1-9e7e-4602-adb7-8593d102a8f4" name="Changes" comment="" />
+      <created>1652633374836</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652633374836</updated>
+      <workItem from="1652633376217" duration="5000" />
+    </task>
+    <servers />
+  </component>
+</project>
