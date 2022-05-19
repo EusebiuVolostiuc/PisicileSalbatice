@@ -55,7 +55,6 @@ namespace AcademicInfoServer.Controllers
             }
 
            
-
             return new JsonResult(tbl);
 
         }
