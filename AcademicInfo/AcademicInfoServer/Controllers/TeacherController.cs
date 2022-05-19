@@ -23,8 +23,380 @@ namespace AcademicInfoServer.Controllers
             _env = env;
         }
 
-        [HttpPut("setMaxNumberOfStud/{nr}")]
-        public IActionResult getProposed(int nr)
+        [HttpPost("approve")]
+        public IActionResult approve(ProposedOptional po)
+        {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+            SqlDataReader dreader;
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dreader = cmd.ExecuteReader();
+
+                        if (dreader.HasRows == false)
+                            return BadRequest("An error occured!");
+
+                        dreader.Read();
+
+                        String type = dreader.GetString(0);
+
+                        if (!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can approve optionals!");
+
+                    }
+
+                    dreader.Close();
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+            string del = @"delete from ProposedOptionals where CourseName=" + po.CourseName;
+
+            string insert = @"insert into Courses values ( " + userID + ",'" + po.department + "'," + po.year + "," + po.semester + "," + po.credits + "'o'" + ", 'o'" + "'" + po.CourseName + "'";
+
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(del, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(insert, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+
+                    }
+
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return new JsonResult("Course succesfully approved");
+
+
+        }
+
+        [HttpGet("get_approvedOptionals")]
+
+        public IActionResult get_approvedOptionals()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+            SqlDataReader dreader;
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dreader = cmd.ExecuteReader();
+
+                        if (dreader.HasRows == false)
+                            return BadRequest("An error occured!");
+
+                        dreader.Read();
+
+                        String type = dreader.GetString(0);
+
+                        if (!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can see all the optionals!");
+
+                    }
+
+                    dreader.Close();
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            string query = "select * from ProposedOptionals where maxStudents>0";
+
+            SqlDataReader myReader;
+
+            DataTable tbl = new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            List<int> ls = new List<int>();
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == false)
+                            return BadRequest("There are no optionals in the DataBase!");
+
+                        tbl.Load(myReader);
+
+
+                    }
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach (DataRow dr in tbl.Rows)
+                    {
+                        q = "select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
+
+                        using (SqlCommand cmd = new SqlCommand(q, myCon))
+                        {
+                            myReader = cmd.ExecuteReader();
+
+                            myReader.Read();
+
+                            dr["TeacherName"] = myReader.GetString(0);
+                        }
+
+                        myReader.Close();
+                    }
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+
+
+            catch (Exception ex)
+            { return BadRequest(ex.Message); }
+
+
+
+
+            return new JsonResult(tbl);
+        }
+
+
+        [HttpGet("get_Optionals")]
+
+        public IActionResult get_Optionals()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+            SqlDataReader dreader;
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+         
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dreader = cmd.ExecuteReader();
+
+                        if (dreader.HasRows == false)
+                            return BadRequest("An error occured!");
+
+                        dreader.Read();
+
+                        String type = dreader.GetString(0);
+
+                        if (!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can see all the optionals!");
+
+                    }
+
+                    dreader.Close();
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            string query = "select * from ProposedOptionals";
+
+            SqlDataReader myReader;
+
+            DataTable tbl = new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            List<int> ls = new List<int>();
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == false)
+                            return BadRequest("There are no optionals in the DataBase!");
+
+                        tbl.Load(myReader);
+
+                       
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach (DataRow dr in tbl.Rows)
+                    {
+                        q = "select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
+
+                        using (SqlCommand cmd = new SqlCommand(q, myCon))
+                        {
+                            myReader = cmd.ExecuteReader();
+
+                            myReader.Read();
+
+                            dr["TeacherName"] = myReader.GetString(0);
+                        }
+
+                        myReader.Close();
+                    }
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+
+
+            catch (Exception ex)
+            { return BadRequest(ex.Message); }
+
+
+
+
+            return new JsonResult(tbl);
+        }
+
+
+
+        [HttpPut("setMaxNumberOfStud/{nr}/{courseName}")]
+        public IActionResult setMaxNumberOfStud(int nr,string courseName)
         {
             string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
 
@@ -77,7 +449,7 @@ namespace AcademicInfoServer.Controllers
             { return new JsonResult(ex.Message); }
 
 
-            string @query="update ProposedOptionals set maxStudents="+nr + " where teacherID="+userID;
+            string @query="update ProposedOptionals set maxStudents="+nr + " where teacherID="+userID  + " and courseName='" + courseName+"'";
 
 
                  try
@@ -474,7 +846,7 @@ namespace AcademicInfoServer.Controllers
             }
 
 
-            string query = "insert into ProposedOptionals values ( " + id + ",'" + department + "'," + cs.year + "," + cs.semester + "," + cs.credits + ",'" + cs.CourseName + "')";
+            string query = "insert into ProposedOptionals values ( " + id + ",'" + department + "'," + cs.year + "," + cs.semester + "," + cs.credits + ",'" + cs.CourseName + "'," + 0 + " )";
 
 
             try
