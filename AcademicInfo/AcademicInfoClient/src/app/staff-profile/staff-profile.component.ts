@@ -54,8 +54,8 @@ export class StaffProfileComponent implements OnInit {
   }
 
   logout() {
+    localStorage.setItem("token", "");
     this.router.navigateByUrl("");
-    localStorage.setItem("token","");
   }
 
   load_student_form() {
