@@ -76,9 +76,12 @@ namespace AcademicInfoServer.Controllers
             { return new JsonResult(ex.Message); }
 
 
-            string del = @"delete from ProposedOptionals where CourseName=" + po.CourseName;
+            string del = @"delete from ProposedOptionals where CourseName='" + po.CourseName + "'";
 
-            string insert = @"insert into Courses values ( " + userID + ",'" + po.department + "'," + po.year + "," + po.semester + "," + po.credits + "'o'" + ", 'o'" + "'" + po.CourseName + "'";
+            string insert = @"insert into Courses values ( " + userID + ",'" + po.department + "'," + po.year + "," + po.semester + "," + po.credits + ",'o'" + "," + "'" + po.CourseName + "'" +")";
+
+            Console.WriteLine(del);
+            Console.WriteLine(insert);
 
 
             try
