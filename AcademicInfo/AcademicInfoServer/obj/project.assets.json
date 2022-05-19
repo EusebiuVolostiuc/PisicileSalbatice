@@ -2111,19 +2111,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tavi\\.nuget\\packages\\": {}
+    "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "projectUniqueName": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
       "projectName": "AcademicInfoServer",
-      "projectPath": "D:\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-      "packagesPath": "C:\\Users\\Tavi\\.nuget\\packages\\",
-      "outputPath": "D:\\PisicileSalbatice\\AcademicInfo\\AcademicInfoServer\\obj\\",
+      "projectPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+      "packagesPath": "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Tavi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lucian Vrabiescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2192,7 +2192,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
