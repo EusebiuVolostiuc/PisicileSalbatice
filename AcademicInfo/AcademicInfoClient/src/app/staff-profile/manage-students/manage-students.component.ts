@@ -20,7 +20,7 @@ interface Student {
 })
 export class ManageStudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'year', 'group','average'];
+  displayedColumns: string[] = ['position', 'name', 'year', 'group', 'average'];
   dataSource = [];
   students: Student[]
 

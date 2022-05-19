@@ -129,11 +129,11 @@ namespace AcademicInfoServer.Controllers
            
         }
         [HttpGet("get_Students")]
-        public JsonResult Get(string? year = "%", string? group = "%", int? minAvg = 0, int? maxAvg = 10)
+        public JsonResult Get(string? year = "", string? group = "", int? minAvg = 0, int? maxAvg = 10)
         {
             string query = @"select *, (select cast(avg(cast(value as decimal(10,2))) as decimal(10,2)) from grades group by studentID having studentID = userID) as average 
                             from students
-                            where year like '" + year + "' and groupp like '" + group + "' order by average desc";
+                            where year like '%" + year + "' and groupp like '%" + group + "' order by average desc";
 
 
 
@@ -168,7 +168,15 @@ namespace AcademicInfoServer.Controllers
 
             var filteredRows = tbl.Select("average >= " + minAvg + " and average <= " + maxAvg + "");
 
-            return new JsonResult(filteredRows.CopyToDataTable());
+            if(filteredRows.Length > 0)
+            {
+                return new JsonResult(filteredRows.CopyToDataTable());
+            }
+            else
+            {
+                return new JsonResult(filteredRows);
+            }
+
 
         }
 
