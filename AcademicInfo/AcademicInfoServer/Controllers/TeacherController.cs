@@ -16,9 +16,218 @@ namespace AcademicInfoServer.Controllers
     {
 
         private IConfiguration _configuration;
-        public TeacherController(IConfiguration config)
+        private readonly IWebHostEnvironment _env;
+        public TeacherController(IConfiguration config,IWebHostEnvironment env)
         {
             _configuration = config;
+            _env = env;
+        }
+
+        [HttpPut("setMaxNumberOfStud/{nr}")]
+        public IActionResult getProposed(int nr)
+        {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr = cmd.ExecuteReader();
+                        
+                        if(dr.HasRows==false)
+                            return BadRequest("An error occured!");
+
+                        dr.Read();
+
+                        String type=dr.GetString(0);
+
+                        if(!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can set the maximum number of students!");
+
+                    }
+
+                    dr.Close();
+                    conn.Close();
+                }
+            }
+
+          
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+            string @query="update ProposedOptionals set maxStudents="+nr + " where teacherID="+userID;
+
+
+                 try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.ExecuteNonQuery();  
+
+                    }
+                }
+            }
+
+          
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return new JsonResult("Succesfully updated!");
+
+        }
+
+
+
+        [HttpPut("upload_Photo")]
+        public IActionResult upload_Photo()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            try
+            {
+                var req = Request.Form;
+                var file = req.Files[0];
+                String[] extension = file.FileName.Split('.');
+                String filename = userID + "." + extension[extension.Length - 1];
+                var physicalPath = _env.ContentRootPath + "/Photos/Teachers/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                return new JsonResult("File succesfully uploaded!");
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        public IActionResult Put(Teacher s)
+        {
+
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            int id = Convert.ToInt32(userID);
+
+            string query = @"update Teachers set Name='" + s.Name + "',department='" + s.department + "' where userID="+ id;
+
+
+            Console.Write(query);
+            DataTable tbl = new DataTable();
+
+            string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
+
+            SqlDataReader myReader;
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        tbl.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+            string delete_courses = @"delete from Courses where teacherID=" + id;
+            string delete_courses2 = @"delete from StudentsCourses where courseID in ( select courseID from Courses where teacherID=" + id +")";
+            string delete_courses3 = @"delete from StudentsOptionals where courseID in ( select courseID from Courses where teacherID=" + id + ")";
+            string delete_courses4 = @"delete from Grades where courseID in ( select courseID from Courses where teacherID=" + id + ")";
+
+            Console.WriteLine(delete_courses);
+            Console.WriteLine(delete_courses2);
+            Console.WriteLine(delete_courses3);
+            Console.WriteLine(delete_courses4);
+
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                   SqlCommand c1=new SqlCommand(delete_courses, myCon);
+                    SqlCommand c2=new SqlCommand(delete_courses2, myCon);
+                    SqlCommand c3=new SqlCommand(delete_courses3, myCon);
+                    SqlCommand c4 = new SqlCommand(delete_courses4, myCon);
+
+                    c4.ExecuteNonQuery();
+                    c3.ExecuteNonQuery();
+                    c2.ExecuteNonQuery();
+                    c1.ExecuteNonQuery();
+                    
+                    
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+
+
+
+
+            return new JsonResult("Updated succesfully!");
+
         }
 
         [HttpGet("get_Grades")]
@@ -363,7 +572,7 @@ namespace AcademicInfoServer.Controllers
                         dr = cmd.ExecuteReader();
 
                         if (!dr.HasRows)
-                            return new JsonResult("The student is not enrolled in any course!");
+                            return BadRequest("The student is not enrolled in any course!");
 
                         dt.Load(dr);
 
@@ -455,7 +664,7 @@ namespace AcademicInfoServer.Controllers
             catch (Exception ex)
             { return new JsonResult(ex.Message); }
 
-            return Ok("Student Graded!");
+            return new JsonResult("Student Graded!");
         }
 
        

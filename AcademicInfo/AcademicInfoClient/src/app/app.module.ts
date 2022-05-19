@@ -19,7 +19,7 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
 import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { ManageStudentsComponent } from './staff-profile/manage-students/manage-students.component';
 import { StudentFormComponent } from './staff-profile/manage-students/student-form/student-form.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { CoursesTabComponent } from './student-profile/courses-tab/courses-tab.component';
 import { OptionalsTabComponent } from './student-profile/optionals-tab/optionals-tab.component';
@@ -27,6 +27,11 @@ import { OptionalsFormComponent } from './teacher-profile/optionals-form/optiona
 import {MatSelectModule} from "@angular/material/select";
 import {MatListModule} from "@angular/material/list";
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
+import { UpdateProfileComponent } from './student-profile/update-profile/update-profile.component';
+import { UpdateTeacherComponent } from './teacher-profile/update-teacher/update-teacher.component';
+import { UpdateStaffComponent } from './staff-profile/update-staff/update-staff.component';
+import { GradeStudentComponent } from './teacher-profile/grade-student/grade-student.component';
+
 
 
 const routes: Routes = [
@@ -48,12 +53,16 @@ const routes: Routes = [
     TeacherProfileComponent,
     CoursesTabComponent,
     OptionalsTabComponent,
-    OptionalsFormComponent
+    OptionalsFormComponent,
+    UpdateProfileComponent,
+    UpdateTeacherComponent,
+    UpdateStaffComponent,
+    GradeStudentComponent
   ],
     imports: [
         RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
         MatFormFieldModule, MatInputModule, MatButtonModule, MatCardModule,
-        MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule, MatTabsModule, MatSelectModule, MatDialogModule, MatListModule
+        MatToolbarModule, MatTableModule, MatSidenavModule, ReactiveFormsModule, MatTabsModule, MatSelectModule, MatDialogModule, MatListModule, FormsModule
     ],
   providers: [
     {

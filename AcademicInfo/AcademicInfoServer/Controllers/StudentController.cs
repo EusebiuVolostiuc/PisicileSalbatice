@@ -15,10 +15,46 @@ namespace AcademicInfoServer.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _env;
 
-        public StudentController(IConfiguration configuration)
+        public StudentController(IConfiguration configuration,IWebHostEnvironment env)
         {
             _configuration = configuration;
+            _env = env;
+        }
+
+        [HttpPut("upload_Photo")]
+        public IActionResult upload_Photo()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+            try
+            {
+                var req = Request.Form;
+                var file=req.Files[0];
+                String [] extension = file.FileName.Split('.');
+                String filename = userID+"."+extension[extension.Length-1];
+                var physicalPath = _env.ContentRootPath + "/Photos/Students/" + filename;
+
+                using (var stream=new FileStream(physicalPath,FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                return new JsonResult("File succesfully uploaded!");
+
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
         }
 
         [HttpGet("get_Grades")]
@@ -91,10 +127,11 @@ namespace AcademicInfoServer.Controllers
 
             int id = Convert.ToInt32(userID);
 
+
             string query = @"update Students set Name='" + s.name + "',department='" + s.department + "'," + "year=" + s.year + ",groupp=" + s.group + " where userID="+ id;
 
 
-            Console.Write(query);
+            Console.WriteLine(query);
             DataTable tbl = new DataTable();
 
             string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
@@ -113,6 +150,79 @@ namespace AcademicInfoServer.Controllers
                         tbl.Load(myReader);
 
                         myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            string delete_courses=@"delete from StudentsCourses where studentID="+id;
+
+            Console.WriteLine(delete_courses);
+
+            
+               try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(delete_courses, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            
+
+
+
+            string enroll_student=@"select courseID from courses where department='" + s.department + "' and " + "year=" + s.year + " and courseType='m'";
+
+            Console.WriteLine(enroll_student);
+
+               try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(enroll_student, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        List<int> ids = new List<int>();
+                        
+                        while(myReader.Read())
+                        {
+                            int cid = myReader.GetInt32(0);
+                            ids.Add(cid);
+                            
+                        }
+
+                        myReader.Close();
+
+                        foreach(int cid in ids)
+                        {
+                            string enroll = @"insert into StudentsCourses values ( " + id + "," + cid + ")";
+                            Console.WriteLine(enroll);
+                            SqlCommand cmd2 = new SqlCommand(enroll, myCon);
+                            cmd2.ExecuteNonQuery();
+                        }
+
                         myCon.Close();
                     }
 
@@ -339,7 +449,7 @@ namespace AcademicInfoServer.Controllers
             }
 
 
-            string query = "select * from Courses where courseID in (select courseID from StudentsCourses where studentID =" + userID + ") and courseType='o'";
+            string query = "select * from Courses where courseID in (select courseID from StudentsOptionals where studentID =" + userID + ") ";
 
 
 

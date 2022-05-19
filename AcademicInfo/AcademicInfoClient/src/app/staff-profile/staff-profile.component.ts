@@ -10,9 +10,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class StaffProfileComponent implements OnInit {
 
   name: any;
+  id:any;
   hello: number;
   manage: number;
   form: number;
+  updatePfinfo: number;
   constructor(private router:Router,private http: HttpClient) {
 
   }
@@ -21,6 +23,7 @@ export class StaffProfileComponent implements OnInit {
     this.hello=1;
     this.manage=0;
     this.form=0;
+    this.updatePfinfo=0;
     var token = localStorage.getItem('token');
 
     var tokenise = "Bearer " + token;
@@ -37,6 +40,7 @@ export class StaffProfileComponent implements OnInit {
         var staff = Object.values(response)[0];
         console.log(staff);
         this.name= staff["Name"];
+        this.id=staff["userID"];
       })
     this.name="name"
   }
@@ -44,6 +48,7 @@ export class StaffProfileComponent implements OnInit {
   load_manage_students(){
     this.hello=0;
     this.form=0;
+    this.updatePfinfo=0;
     this.manage=1;
     //this.router.navigateByUrl('manage-students-component');
   }
@@ -56,6 +61,15 @@ export class StaffProfileComponent implements OnInit {
   load_student_form() {
     this.hello=0;
     this.manage=0;
+    this.updatePfinfo=0;
       this.form=1
+  }
+
+  updateProfileInfo() {
+    this.hello=0
+    this.manage=0
+    this.form=0
+    this.updatePfinfo=1
+
   }
 }

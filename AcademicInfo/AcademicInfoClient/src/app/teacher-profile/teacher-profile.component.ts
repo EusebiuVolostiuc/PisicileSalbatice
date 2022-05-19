@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-teacher-profile',
@@ -9,8 +9,11 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 export class TeacherProfileComponent implements OnInit {
   name: any;
+  department:any;
   propose: number;
   hello: number;
+  updatePfinfo: number;
+  gradeStudent: number;
 
   constructor(private router:Router,private http: HttpClient) {
 
@@ -19,6 +22,8 @@ export class TeacherProfileComponent implements OnInit {
   ngOnInit(): void {
     this.hello=1;
     this.propose=0;
+    this.updatePfinfo=0;
+    this.gradeStudent=0;
     var token = localStorage.getItem('token');
 
     var tokenise = "Bearer " + token;
@@ -34,7 +39,10 @@ export class TeacherProfileComponent implements OnInit {
         var teacher = Object.values(response)[0];
         console.log(teacher);
         this.name=teacher["Name"]
+        this.department=teacher["department"]
       })
+
+
   }
 
   logout() {
@@ -44,6 +52,23 @@ export class TeacherProfileComponent implements OnInit {
 
   loadOptionalForm() {
     this.hello=0;
+    this.updatePfinfo=0;
+    this.gradeStudent=0;
     this.propose=1;
   }
+
+  updateProfileInfo() {
+    this.hello=0;
+    this.propose=0;
+    this.gradeStudent=0;
+    this.updatePfinfo=1;
+  }
+
+  loadGradeStudent() {
+    this.hello=0;
+    this.propose=0;
+    this.updatePfinfo=0;
+    this.gradeStudent=1;
+  }
+
 }

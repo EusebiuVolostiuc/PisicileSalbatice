@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthInterceptorComponent } from './auth-interceptor.component';
+import { UpdateTeacherComponent } from './update-teacher.component';
 
-describe('AuthInterceptorComponent', () => {
-  let component: AuthInterceptorComponent;
-  let fixture: ComponentFixture<AuthInterceptorComponent>;
+describe('UpdateTeacherComponent', () => {
+  let component: UpdateTeacherComponent;
+  let fixture: ComponentFixture<UpdateTeacherComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthInterceptorComponent ]
+      declarations: [ UpdateTeacherComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthInterceptorComponent);
+    fixture = TestBed.createComponent(UpdateTeacherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
