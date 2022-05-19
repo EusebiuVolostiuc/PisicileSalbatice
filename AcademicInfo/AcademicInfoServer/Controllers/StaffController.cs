@@ -228,6 +228,8 @@ namespace AcademicInfoServer.Controllers
                 }
             }
 
+
+
             catch(Exception ex)
             {
                 return new JsonResult(ex.Message);
@@ -257,6 +259,49 @@ namespace AcademicInfoServer.Controllers
 
                 }
             }
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
+
+            string enroll_student = @"select courseID from courses where department='" + u.department + "' and " + "year=" + u.year + " and courseType='m'";
+
+            Console.WriteLine(enroll_student);
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(enroll_student, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        List<int> ids = new List<int>();
+
+                        while (myReader.Read())
+                        {
+                            int cid = myReader.GetInt32(0);
+                            ids.Add(cid);
+
+                        }
+
+                        myReader.Close();
+
+                        foreach (int cid in ids)
+                        {
+                            string enroll = @"insert into StudentsCourses values ( " + id + "," + cid + ")";
+                            Console.WriteLine(enroll);
+                            SqlCommand cmd2 = new SqlCommand(enroll, myCon);
+                            cmd2.ExecuteNonQuery();
+                        }
+
+                        myCon.Close();
+                    }
+
+                }
+            }
+
             catch (Exception ex)
             {
                 return new JsonResult(ex.Message);
