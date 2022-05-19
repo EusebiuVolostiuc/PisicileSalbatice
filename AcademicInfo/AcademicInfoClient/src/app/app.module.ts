@@ -33,7 +33,6 @@ import { UpdateStaffComponent } from './staff-profile/update-staff/update-staff.
 import { GradeStudentComponent } from './teacher-profile/grade-student/grade-student.component';
 
 
-
 const routes: Routes = [
   {path:'', component:LoginFormComponent},
   { path: 'staff-component', component: StaffProfileComponent },
