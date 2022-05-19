@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {}
+    "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {
+    "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+        "projectUniqueName": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
         "projectName": "AcademicInfoServer",
-        "projectPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
-        "packagesPath": "C:\\Users\\Lucian Vrabiescu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lucian Vrabiescu\\Faculta\\ISS\\newnewnew\\AcademicInfo\\AcademicInfoServer\\obj\\",
+        "projectPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\AcademicInfoServer.csproj",
+        "packagesPath": "C:\\Users\\evolo\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\Code\\ISS\\AcademicInfo\\AcademicInfoServer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lucian Vrabiescu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\evolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
