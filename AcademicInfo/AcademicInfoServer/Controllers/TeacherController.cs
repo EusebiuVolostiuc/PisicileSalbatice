@@ -108,10 +108,12 @@ namespace AcademicInfoServer.Controllers
             string delete_courses = @"delete from Courses where teacherID=" + id;
             string delete_courses2 = @"delete from StudentsCourses where courseID in ( select courseID from Courses where teacherID=" + id +")";
             string delete_courses3 = @"delete from StudentsOptionals where courseID in ( select courseID from Courses where teacherID=" + id + ")";
+            string delete_courses4 = @"delete from Grades where courseID in ( select courseID from Courses where teacherID=" + id + ")";
 
             Console.WriteLine(delete_courses);
             Console.WriteLine(delete_courses2);
             Console.WriteLine(delete_courses3);
+            Console.WriteLine(delete_courses4);
 
 
             try
@@ -122,10 +124,14 @@ namespace AcademicInfoServer.Controllers
                    SqlCommand c1=new SqlCommand(delete_courses, myCon);
                     SqlCommand c2=new SqlCommand(delete_courses2, myCon);
                     SqlCommand c3=new SqlCommand(delete_courses3, myCon);
+                    SqlCommand c4 = new SqlCommand(delete_courses4, myCon);
 
-                    c1.ExecuteNonQuery();
-                    c2.ExecuteNonQuery();
+                    c4.ExecuteNonQuery();
                     c3.ExecuteNonQuery();
+                    c2.ExecuteNonQuery();
+                    c1.ExecuteNonQuery();
+                    
+                    
 
                 }
             }
