@@ -23,8 +23,157 @@ namespace AcademicInfoServer.Controllers
             _env = env;
         }
 
+        [HttpGet("get_Optionals")]
+
+        public IActionResult get_Optionals()
+        {
+
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+            SqlDataReader dreader;
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+         
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dreader = cmd.ExecuteReader();
+
+                        if (dreader.HasRows == false)
+                            return BadRequest("An error occured!");
+
+                        dreader.Read();
+
+                        String type = dreader.GetString(0);
+
+                        if (!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can see all the optionals!");
+
+                    }
+
+                    dreader.Close();
+                    conn.Close();
+                }
+            }
+
+
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            string query = "select * from courses where courseType='o'";
+
+            SqlDataReader myReader;
+
+            DataTable tbl = new DataTable();
+
+            string con_string = _configuration.GetConnectionString("AcademicInfo");
+
+            List<int> ls = new List<int>();
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, myCon))
+                    {
+                        myReader = cmd.ExecuteReader();
+
+                        if (myReader.HasRows == false)
+                            return BadRequest("There are no optionals in the DataBase!");
+
+                        tbl.Load(myReader);
+
+                        tbl.Columns["courseType"].MaxLength = 500;
+
+                        foreach (DataRow dr in tbl.Rows)
+                        {
+
+                            if (dr["courseType"].Equals("m"))
+                                dr["courseType"] = "mandatory";
+                            else
+                                dr["courseType"] = "optional";
+
+                            ls.Add(Convert.ToInt32(dr["teacherID"]));
+                        }
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+
+
+                }
+
+
+            }
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+            try
+            {
+                using (SqlConnection myCon = new SqlConnection(con_string))
+                {
+                    myCon.Open();
+
+                    tbl.Columns.Add("TeacherName");
+
+                    foreach (DataRow dr in tbl.Rows)
+                    {
+                        q = "select Name from Teachers where userID=" + Convert.ToInt32(dr["teacherID"]);
+
+                        using (SqlCommand cmd = new SqlCommand(q, myCon))
+                        {
+                            myReader = cmd.ExecuteReader();
+
+                            myReader.Read();
+
+                            dr["TeacherName"] = myReader.GetString(0);
+                        }
+
+                        myReader.Close();
+                    }
+
+                    myReader.Close();
+                    myCon.Close();
+                }
+            }
+
+
+
+            catch (Exception ex)
+            { return BadRequest(ex.Message); }
+
+
+
+
+            return new JsonResult(tbl);
+        }
+
+
+
         [HttpPut("setMaxNumberOfStud/{nr}")]
-        public IActionResult getProposed(int nr)
+        public IActionResult setMaxNumberOfStud(int nr)
         {
             string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
 
