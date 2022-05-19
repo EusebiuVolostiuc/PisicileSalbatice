@@ -9,7 +9,8 @@ interface Student {
   Name:string,
   department:string,
   year:number,
-  groupp:number
+  groupp: number,
+  average: number
 }
 
 @Component({
@@ -19,7 +20,7 @@ interface Student {
 })
 export class ManageStudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'year', 'group'];
+  displayedColumns: string[] = ['position', 'name', 'year', 'group','average'];
   dataSource = [];
   students: Student[]
 
