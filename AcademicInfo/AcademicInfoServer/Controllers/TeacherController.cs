@@ -23,6 +23,87 @@ namespace AcademicInfoServer.Controllers
             _env = env;
         }
 
+        [HttpPut("setMaxNumberOfStud/{nr}")]
+        public IActionResult getProposed(int nr)
+        {
+            string userID = Authentication.AccountController.getUserIDFromRequest(HttpContext.Request);
+
+            if (userID == null)
+            {
+                return BadRequest("Invalid Token");
+            }
+
+
+            string q = "select type from Teachers where userID = " + userID;
+
+            DataTable dt = new DataTable();
+
+            SqlDataReader dr;
+
+            Console.WriteLine(q);
+
+
+            string myConn = _configuration.GetConnectionString("AcademicInfo");
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        dr = cmd.ExecuteReader();
+                        
+                        if(dr.HasRows==false)
+                            return BadRequest("An error occured!");
+
+                        dr.Read();
+
+                        String type=dr.GetString(0);
+
+                        if(!type.Equals("chief"))
+                            return Unauthorized("Only chief teachers can set the maximum number of students!");
+
+                    }
+
+                    dr.Close();
+                    conn.Close();
+                }
+            }
+
+          
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+
+            string @query="update ProposedOptionals set maxStudents="+nr + " where teacherID="+userID;
+
+
+                 try
+            {
+                using (SqlConnection conn = new SqlConnection(myConn))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.ExecuteNonQuery();  
+
+                    }
+                }
+            }
+
+          
+            catch (Exception ex)
+            { return new JsonResult(ex.Message); }
+
+            return new JsonResult("Succesfully updated!");
+
+        }
+
+
+
         [HttpPut("upload_Photo")]
         public IActionResult upload_Photo()
         {
