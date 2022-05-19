@@ -14,6 +14,8 @@ export class TeacherProfileComponent implements OnInit {
   hello: number;
   updatePfinfo: number;
   gradeStudent: number;
+  seeOptionalProposals:number;
+  chief:number;
 
   constructor(private router:Router,private http: HttpClient) {
 
@@ -24,6 +26,7 @@ export class TeacherProfileComponent implements OnInit {
     this.propose=0;
     this.updatePfinfo=0;
     this.gradeStudent=0;
+    this.seeOptionalProposals=0;
     var token = localStorage.getItem('token');
 
     var tokenise = "Bearer " + token;
@@ -40,6 +43,10 @@ export class TeacherProfileComponent implements OnInit {
         console.log(teacher);
         this.name=teacher["Name"]
         this.department=teacher["department"]
+        if(teacher["type"]=="chief")
+          this.chief=1;
+        else
+          this.chief=0
       })
 
 
@@ -61,6 +68,7 @@ export class TeacherProfileComponent implements OnInit {
     this.hello=0;
     this.propose=0;
     this.gradeStudent=0;
+    this.seeOptionalProposals=0;
     this.updatePfinfo=1;
   }
 
@@ -68,7 +76,16 @@ export class TeacherProfileComponent implements OnInit {
     this.hello=0;
     this.propose=0;
     this.updatePfinfo=0;
+    this.seeOptionalProposals=0;
     this.gradeStudent=1;
   }
 
+  loadOptionalProposals() {
+    this.hello=0;
+    this.propose=0;
+    this.updatePfinfo=0;
+    this.gradeStudent=0;
+    this.seeOptionalProposals=1;
+
+  }
 }

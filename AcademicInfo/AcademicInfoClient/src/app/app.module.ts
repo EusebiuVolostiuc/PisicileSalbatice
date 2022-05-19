@@ -31,6 +31,7 @@ import { UpdateProfileComponent } from './student-profile/update-profile/update-
 import { UpdateTeacherComponent } from './teacher-profile/update-teacher/update-teacher.component';
 import { UpdateStaffComponent } from './staff-profile/update-staff/update-staff.component';
 import { GradeStudentComponent } from './teacher-profile/grade-student/grade-student.component';
+import { OptionalProposalsComponent } from './teacher-profile/optional-proposals/optional-proposals.component';
 
 
 
@@ -57,7 +58,8 @@ const routes: Routes = [
     UpdateProfileComponent,
     UpdateTeacherComponent,
     UpdateStaffComponent,
-    GradeStudentComponent
+    GradeStudentComponent,
+    OptionalProposalsComponent
   ],
     imports: [
         RouterModule.forRoot(routes), BrowserModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule,
