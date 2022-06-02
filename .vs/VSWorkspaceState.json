@@ -10,6 +10,6 @@
     "\\AcademicInfo\\AcademicInfoServer\\Controllers",
     "\\AcademicInfo\\AcademicInfoServer\\Models"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\staff-profile.component.spec.ts",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfoServer\\Controllers\\StaffController.cs",
   "PreviewInSolutionExplorer": false
 }
