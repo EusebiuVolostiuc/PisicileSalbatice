@@ -137,6 +137,7 @@ namespace AcademicInfoServer.Controllers
 
 
 
+            Console.WriteLine(query);
             DataTable tbl = new DataTable();
 
             string sqlDataSource = _configuration.GetConnectionString("AcademicInfo");
@@ -166,7 +167,7 @@ namespace AcademicInfoServer.Controllers
                 return new JsonResult(ex.Message);
             }
 
-            var filteredRows = tbl.Select("average >= " + minAvg + " and average <= " + maxAvg + "");
+            var filteredRows = tbl.Select("average is null or (average>=" + minAvg + " and average <= " + maxAvg + ")");
 
             if (filteredRows.Count() == 0)
                 return new JsonResult("[]");
