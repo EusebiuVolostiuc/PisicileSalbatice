@@ -2,10 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\AcademicInfo",
+    "\\AcademicInfo\\AcademicInfoClient",
+    "\\AcademicInfo\\AcademicInfoClient\\src",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app",
+    "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile",
     "\\AcademicInfo\\AcademicInfoServer",
     "\\AcademicInfo\\AcademicInfoServer\\Controllers",
     "\\AcademicInfo\\AcademicInfoServer\\Models"
   ],
-  "SelectedNode": "\\AcademicInfo\\AcademicInfo.sln",
+  "SelectedNode": "\\AcademicInfo\\AcademicInfoClient\\src\\app\\staff-profile\\staff-profile.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }

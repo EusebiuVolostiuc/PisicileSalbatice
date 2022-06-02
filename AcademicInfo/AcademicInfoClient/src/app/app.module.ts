@@ -34,7 +34,6 @@ import { GradeStudentComponent } from './teacher-profile/grade-student/grade-stu
 import { OptionalProposalsComponent } from './teacher-profile/optional-proposals/optional-proposals.component';
 
 
-
 const routes: Routes = [
   {path:'', component:LoginFormComponent},
   { path: 'staff-component', component: StaffProfileComponent },

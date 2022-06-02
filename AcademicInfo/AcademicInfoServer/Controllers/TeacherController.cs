@@ -783,37 +783,6 @@ namespace AcademicInfoServer.Controllers
 
             string department;
 
-            string get_course = @"select * from Courses where CourseName='" + cs.CourseName + "'";
-
-            SqlDataReader da2;
-
-            Console.WriteLine(get_course);
-
-            try
-            {
-                using (SqlConnection myCon = new SqlConnection(myConn))
-                {
-                    myCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(get_course, myCon))
-                    {
-                        da2 = cmd.ExecuteReader();
-
-                        if(da2.HasRows==true)
-                            return new JsonResult("The course is already in the db!");
-                        
-                    }
-
-                    da2.Close();
-                    myCon.Close();
-                }
-            }
-
-            catch (Exception ex)
-            {
-                return new JsonResult(ex.Message);
-            }
-
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(myConn))

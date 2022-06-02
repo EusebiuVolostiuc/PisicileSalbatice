@@ -20,9 +20,15 @@ interface Student {
 })
 export class ManageStudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'year', 'group', 'average'];
+  displayedColumns: string[] = ['position', 'name', 'year', 'group','average'];
   dataSource = [];
   students: Student[]
+  tableStudents: Student[]
+
+  groupFilter = '';
+  averageMinFilter = '';
+  averageMaxFilter = '';
+  yearFilter = '';
 
 
   constructor(private router: Router, private http: HttpClient) { }
@@ -57,7 +63,34 @@ export class ManageStudentsComponent implements OnInit {
         }
       }
       return postArr;
-    })).subscribe(posts => this.students = posts)
+    })).subscribe(posts => {
+      this.students = posts
+      this.tableStudents = this.students;
+    })
+  }
+
+  applyFilters() {
+    let groupFilter = parseInt(this.groupFilter);
+    let averageMinFilter = parseFloat(this.averageMinFilter);
+    let averageMaxFilter = parseFloat(this.averageMaxFilter);
+    let yearFilter = parseInt(this.yearFilter);
+
+    let filterGroup = this.groupFilter !== '' ? ((student: Student) => {return student.groupp === groupFilter}) :
+      ((student: Student) => {return true})
+
+    let filterAverageMin = this.averageMinFilter !== '' ? ((student: Student) => {return student.average >= averageMinFilter}) :
+      ((student: Student) => {return true})
+
+    let filterAverageMax = this.averageMaxFilter !== '' ? ((student: Student) => {return student.average <= averageMaxFilter}) :
+      ((student: Student) => {return true})
+
+    let filterYear = this.yearFilter !== '' ? ((student: Student) => {return student.year == yearFilter}) :
+      ((student: Student) => {return true})
+
+    this.tableStudents = this.students.filter(student => {
+      return filterGroup(student) && filterAverageMin(student) && filterAverageMax(student) && filterYear(student);
+    });
+
   }
 
 }
