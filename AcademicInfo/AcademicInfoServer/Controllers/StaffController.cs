@@ -168,6 +168,9 @@ namespace AcademicInfoServer.Controllers
 
             var filteredRows = tbl.Select("average >= " + minAvg + " and average <= " + maxAvg + "");
 
+            if (filteredRows.Count() == 0)
+                return new JsonResult("[]");
+
             return new JsonResult(filteredRows.CopyToDataTable());
 
         }
